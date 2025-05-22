@@ -1,6 +1,7 @@
 import Container from "./container";
 import { Cormorant } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 const cormorant = Cormorant({
 	subsets: ["latin"],
@@ -11,7 +12,7 @@ const cormorant = Cormorant({
 export default function Venue() {
 	return (
 		<Container>
-			<div className="flex flex-col md:flex-row gap-6 flex-wrap">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-14 mt-15">
 				<LeftImage />
 				<RightArticle />
 			</div>
@@ -21,20 +22,20 @@ export default function Venue() {
 
 function LeftImage() {
 	return (
-		<div className="relative w-full xl:w-1/2">
+		<div className="relative">
 			<Image
 				width={6000}
 				height={6000}
 				src="/venue-dining.jpg"
 				alt="Rendezvényterem"
-				className="rounded-br-[200px] z-[-1]"
+				className="rounded-br-[100px] md:rounded-br-[150px] xl:rounded-br-[200px] z-[-1]"
 			/>
 			<Image
 				width={200}
 				height={200}
 				src="/venue-cozy.jpg"
-				alt="Rendezvényterem"
-				className="z-10 absolute -bottom-40 right-40 hidden xl:block"
+				alt="Levendulás folyosó"
+				className="z-10 absolute -bottom-40 right-40 hidden xl:block shadow-xl/30"
 			/>
 
 			<Image
@@ -58,14 +59,26 @@ function LeftImage() {
 
 function RightArticle() {
 	return (
-		<div>
-			<h1 className={`text-3xl font-bold ${cormorant.className} antialiased uppercase`}>
-				Várunk a Levendulásban
+		<div className="xl:mt-25">
+			<p className="text-primary-500 text-sm font-bold uppercase tracking-[0.3em]">
+				A helyszín
+			</p>
+			<h1
+				className={`text-3xl xl:text-5xl font-bold ${cormorant.className} antialiased uppercase my-4`}>
+				Vár a Levendulás
 			</h1>
 
-			<p className="text-lg mt-4">
-				A Boldogító Igenre 2026. június 26-án kerül sor Inárcson.
+			<p className="text-lg my-4">
+				Esküvőnk helyszíne a hangulatos Levendulás lesz Inárcson — egy természetközeli,
+				varázslatos kert, ahol a szertartás és a lagzi is egy helyen lesz. A nyugalom, a
+				levendulák és a nyári este tökéletes díszletet adnak a Dinnyesküvőnek.
 			</p>
+
+			<Link
+				href="/venue"
+				className="mt-8 inline-block rounded-full bg-background text-black px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-primary-800">
+				Tudj meg többet!
+			</Link>
 		</div>
 	);
 }
