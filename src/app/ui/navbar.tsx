@@ -1,14 +1,7 @@
-import { Cormorant, Ephesis } from "next/font/google";
-
 import Container from "./container";
+import { Cormorant } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-
-const ephesis = Ephesis({
-	subsets: ["latin"],
-	weight: "400",
-	style: "normal",
-});
 
 const cormorant = Cormorant({
 	subsets: ["latin"],
