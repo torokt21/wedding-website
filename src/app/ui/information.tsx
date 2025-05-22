@@ -13,8 +13,12 @@ export default function Information() {
 	return (
 		<Container>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-14 mt-15">
-				<RightArticle />
-				<LeftImage />
+				<div className="order-2 xl:order-1">
+					<RightArticle />
+				</div>
+				<div className="order-1 xl:order-2">
+					<LeftImage />
+				</div>
 			</div>
 		</Container>
 	);
