@@ -36,16 +36,8 @@ export default function Countdown() {
 
 	return (
 		<div className="bg-[#e6f0e9] rounded-3xl p-8 max-w-2xl mx-auto text-center relative md:pt-8">
-			{/* Small only */}
 			<p
-				className={`${ephesis.className} text-3xl md:text-4xl md:text-nowrap block md:hidden mb-5`}>
-				A Boldogító igenre <span className="hidden md:inline">még</span> ennyit kell
-				várnunk:
-			</p>
-
-			{/* Md up */}
-			<p
-				className={`${ephesis.className} absolute top-[-1.4rem] left-1/2 transform -translate-x-1/2 text-3xl md:text-4xl md:text-nowrap hidden md:block`}>
+				className={`${ephesis.className} md:absolute md:top-[-1.4rem] md:left-1/2 md:transform md:-translate-x-1/2 text-3xl md:text-4xl md:text-nowrap mb-5`}>
 				A Boldogító igenre <span className="hidden md:inline">még</span> ennyit kell
 				várnunk:
 			</p>
