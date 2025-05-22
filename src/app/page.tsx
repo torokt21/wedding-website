@@ -1,4 +1,5 @@
 import Countdown from "./ui/countdown";
+import History from "./ui/history";
 import Venue from "./ui/venue";
 
 export default function Home() {
@@ -8,6 +9,8 @@ export default function Home() {
 				<Countdown />
 
 				<Venue />
+
+				<History />
 			</main>
 			<footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
 		</div>
