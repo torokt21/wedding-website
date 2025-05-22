@@ -22,7 +22,7 @@ export default function Venue() {
 
 function LeftImage() {
 	return (
-		<div className="relative">
+		<div className="relative xl:mb-20">
 			<Image
 				width={6000}
 				height={6000}
@@ -35,7 +35,7 @@ function LeftImage() {
 				height={200}
 				src="/venue-cozy.jpg"
 				alt="Levendulás folyosó"
-				className="z-10 absolute -bottom-40 right-40 hidden xl:block shadow-xl/30"
+				className="z-10 absolute -bottom-30 right-40 hidden xl:block shadow-xl/30"
 			/>
 
 			<Image
@@ -59,7 +59,7 @@ function LeftImage() {
 
 function RightArticle() {
 	return (
-		<div className="xl:mt-25">
+		<div className="xl:mt-23">
 			<p className="text-primary-500 text-sm font-bold uppercase tracking-[0.3em]">
 				A helyszín
 			</p>
