@@ -6,11 +6,12 @@ import Link from "next/link";
 const cormorant = Cormorant({
 	subsets: ["latin"],
 	style: "normal",
+	weight: "variable",
 });
 
 export default function Navbar() {
 	return (
-		<div className="bg-primary text-xl">
+		<div className="bg-primary-400 text-xl font-medium">
 			<Container>
 				<nav className="flex items-center justify-between">
 					<Logo />
@@ -34,7 +35,7 @@ export default function Navbar() {
 					</ul>
 					<Link
 						href="/rsvp"
-						className="rounded-full my-2 border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto uppercase">
+						className={`${cormorant.className} antialiased rounded-full my-2 border border-primary-800 font-bold text-primary-800 border-solid transition-colors flex items-center bg-primary-500 hover:bg-primary-800 hover:text-white text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto uppercase`}>
 						Visszajelzek
 					</Link>
 				</nav>

@@ -8,7 +8,6 @@
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
-	--color-primary: #d9ece0;
 	--color-primary-100: #f8fffa;
 	--color-primary-200: #e4f7ea;
 	--color-primary-300: #d9ecdf;
