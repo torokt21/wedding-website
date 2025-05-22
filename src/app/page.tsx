@@ -1,6 +1,7 @@
 import Countdown from "./ui/countdown";
-import History from "./ui/history";
+import Information from "./ui/information";
 import Venue from "./ui/venue";
+import Welcome from "./ui/welcome";
 
 export default function Home() {
 	return (
@@ -8,9 +9,11 @@ export default function Home() {
 			<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start pb-30">
 				<Countdown />
 
-				<Venue />
+				<Welcome />
 
-				<History />
+				<Information />
+
+				<Venue />
 			</main>
 			<footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
 		</div>
