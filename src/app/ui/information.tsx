@@ -30,7 +30,7 @@ function LeftImage() {
 			<Image
 				width={6000}
 				height={6000}
-				src="/ceremonia2_dinnyeskuvo.jpg"
+				src="/img/home/information-1.jpg"
 				alt="Rendezvényterem"
 				className="rounded-bl-[100px] md:rounded-bl-[150px] xl:rounded-bl-[200px] z-[-1]"
 			/>
@@ -38,7 +38,7 @@ function LeftImage() {
 			<Image
 				width={200}
 				height={200}
-				src="/ceremonia_dinnyeskuvo.jpg"
+				src="/img/home/information-2.jpg"
 				alt="Levendulás folyosó"
 				className="z-10 absolute -bottom-30 left-40 hidden xl:block shadow-xl/30"
 			/>
