@@ -26,14 +26,14 @@ function LeftImage() {
 			<Image
 				width={6000}
 				height={6000}
-				src="/venue-dining.jpg"
+				src="/img/home/venue-1.jpg"
 				alt="Rendezvényterem"
 				className="rounded-br-[100px] md:rounded-br-[150px] xl:rounded-br-[200px] z-[-1]"
 			/>
 			<Image
 				width={200}
 				height={200}
-				src="/venue-cozy.jpg"
+				src="/img/home/venue-2.jpg"
 				alt="Levendulás folyosó"
 				className="z-10 absolute -bottom-30 right-40 hidden xl:block shadow-xl/30"
 			/>

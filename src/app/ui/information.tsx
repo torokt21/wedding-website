@@ -56,7 +56,7 @@ function LeftImage() {
 				alt="Motive"
 				width={200}
 				height={200}
-				className="absolute -bottom-10 left-0 overflow-hidden -scale-x-100 -scale-x-100"
+				className="absolute -bottom-10 left-0 overflow-hidden -scale-x-100"
 			/>
 		</div>
 	);
