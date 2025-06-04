@@ -70,7 +70,7 @@ function RightArticle() {
 			</p>
 			<h1
 				className={`text-3xl xl:text-5xl font-bold ${cormorant.className} antialiased uppercase my-4`}>
-				Mikor? Hova? Meddig?
+				Mikor? Hova? Meddig?<span className="text-sm">(Mennyit?)</span>
 			</h1>
 
 			<p className="text-lg my-4">

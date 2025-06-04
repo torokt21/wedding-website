@@ -28,6 +28,7 @@ export default function RootLayout({
 						"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
 					}
 				/>
+				<link rel="icon" href="/favicon.png" sizes="32x32" />
 			</Head>
 			<body className={`${montserrat.className} antialiased`}>
 				<Navbar />
