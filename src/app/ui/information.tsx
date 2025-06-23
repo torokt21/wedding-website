@@ -1,3 +1,4 @@
+import AnimationOnScroll from "./animationOnScroll";
 import Container from "./container";
 import { Cormorant } from "next/font/google";
 import Image from "next/image";
@@ -68,16 +69,24 @@ function RightArticle() {
 			<p className="text-primary-500 text-sm font-bold uppercase tracking-[0.3em]">
 				Tudnivalók
 			</p>
-			<h1
-				className={`text-3xl xl:text-5xl font-bold ${cormorant.className} antialiased uppercase my-4`}>
-				Mikor? Hova? Meddig?<span className="text-sm">(Mennyit?)</span>
-			</h1>
+			<AnimationOnScroll
+				classNameInView="animate-fade-left animate-ease-out"
+				classNameNotInView="opacity-0">
+				<AnimationOnScroll
+					classNameInView="animate-fade-up animate-duration-1000 animate-delay-500"
+					classNameNotInView="opacity-0">
+					<h1
+						className={`text-3xl xl:text-5xl font-bold ${cormorant.className} antialiased uppercase my-4`}>
+						Mikor? Hova? Meddig?<span className="text-sm">(Mennyit?)</span>
+					</h1>
+				</AnimationOnScroll>
 
-			<p className="text-lg my-4">
-				Minden hasznos információt megtalálsz a rendezvényünkről, a helyszínről és a
-				menetrendről. A legfontosabb tudnivalókat összegyűjtöttük, hogy majd utólag tudd,
-				hogy minek kellett volna történnie.
-			</p>
+				<p className="text-lg my-4">
+					Minden hasznos információt megtalálsz a rendezvényünkről, a helyszínről és a
+					menetrendről. A legfontosabb tudnivalókat összegyűjtöttük, hogy majd utólag
+					tudd, hogy minek kellett volna történnie.
+				</p>
+			</AnimationOnScroll>
 
 			<Link
 				href="/venue"

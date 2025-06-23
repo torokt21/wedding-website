@@ -63,7 +63,7 @@ function RightArticle() {
 				Hili hali halihó
 			</p>
 			<h1
-				className={`text-3xl xl:text-5xl font-bold ${cormorant.className} antialiased uppercase my-4`}>
+				className={`text-3xl xl:text-5xl font-bold ${cormorant.className} antialiased uppercase my-4 animate-fade-up animate-ease-in`}>
 				Üdvözlünk a Dinnyesküvő weboldalán!
 			</h1>
 
