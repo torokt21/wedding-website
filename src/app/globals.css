@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tailwindcss-animated";
-@import "tailwindcss-intersect";
 
 :root {
 	--background: #f8fffa;
