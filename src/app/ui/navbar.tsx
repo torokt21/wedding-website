@@ -16,7 +16,7 @@ export default function Navbar() {
 				<nav className="flex items-center justify-between">
 					<Logo />
 					<ul
-						className={`${cormorant.className} flex space-x-4 uppercase hidden md:flex py-5`}>
+						className={`${cormorant.className} space-x-4 uppercase hidden md:flex py-5`}>
 						<li>
 							<Link href="/" className="hover:text-gray-400">
 								Helyszín
@@ -47,7 +47,13 @@ export default function Navbar() {
 function Logo() {
 	return (
 		<Link href="/">
-			<Image src="/dinnyeskuvo.svg" alt="Dinnyesküvő" width={150} height={200} />
+			<Image
+				src="/dinnyeskuvo.svg"
+				className="h-[45px] w-[150px]"
+				alt="Dinnyesküvő"
+				width={150}
+				height={45}
+			/>
 		</Link>
 	);
 }

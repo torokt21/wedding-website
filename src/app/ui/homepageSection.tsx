@@ -35,22 +35,27 @@ export default function HomepageSection(props: HomepageSectionProps) {
 }
 
 function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSectionProps) {
-	const roundedCorner = imageSide === "left" ? "br" : "bl";
 	return (
-		<div className="relative xl:mb-20">
+		<div className="relative xl:mb-20 ">
 			<Image
 				width={6000}
 				height={6000}
 				src={mainImageSrc}
 				alt="Rendezvényterem"
-				className={`rounded-${roundedCorner}-[100px] md:rounded-${roundedCorner}-[150px] xl:rounded-${roundedCorner}-[200px] z-[-1]`}
+				className={clsx(`z-[-1]`, {
+					"rounded-br-[100px] md:rounded-br-[150px] xl:rounded-br-[200px]":
+						imageSide === "left",
+					"rounded-bl-[100px] md:rounded-bl-[150px] xl:rounded-bl-[200px]":
+						imageSide === "right",
+				})}
 			/>
 			{secondaryImageSrc && (
 				<Image
 					width={200}
-					height={200}
+					height={300}
+					style={{ width: 200, height: 300 }}
 					src={secondaryImageSrc}
-					alt="Levendulás folyosó"
+					alt=""
 					className={clsx(`z-10 absolute -bottom-30 hidden xl:block shadow-xl/30`, {
 						"right-40": imageSide === "left",
 						"left-40": imageSide === "right",
@@ -62,8 +67,8 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 				src="/motive-top-left.svg"
 				alt="Motive"
 				width={200}
-				height={200}
-				className={clsx("absolute -top-10 ", {
+				height={116}
+				className={clsx("absolute -top-10", {
 					"-left-10.5 xl:-top-15 xl:-left-15": imageSide === "left",
 					"-top-10 -right-10.5 xl:-top-15 xl:-right-15 -scale-x-100":
 						imageSide === "right",
@@ -74,8 +79,8 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 				src="/motive-bottom-right.svg"
 				alt="Motive"
 				width={200}
-				height={200}
-				className={clsx("absolute -bottom-10 overflow-hidden", {
+				height={188}
+				className={clsx("absolute -bottom-10", {
 					"-right-2": imageSide === "left",
 					"-left-0 -scale-x-100": imageSide === "right",
 				})}
