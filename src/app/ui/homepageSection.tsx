@@ -51,7 +51,10 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 					height={200}
 					src={secondaryImageSrc}
 					alt="Levendulás folyosó"
-					className={`z-10 absolute -bottom-30 ${imageSide}-40 hidden xl:block shadow-xl/30`}
+					className={clsx(`z-10 absolute -bottom-30 hidden xl:block shadow-xl/30`, {
+						"right-40": imageSide === "left",
+						"left-40": imageSide === "right",
+					})}
 				/>
 			)}
 
@@ -84,9 +87,9 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 function ArticleColumn({ subheaderText, title, children, imageSide }: HomepageSectionProps) {
 	return (
 		<div className="xl:mt-23">
-			<p className="text-primary-500 text-sm font-bold uppercase tracking-[0.3em]">
+			<div className="text-primary-500 text-sm font-bold uppercase tracking-[0.3em]">
 				{subheaderText}
-			</p>
+			</div>
 			<AnimationOnScroll
 				classNameInView={clsx(` animate-ease-out`, {
 					[`animate-fade-right`]: imageSide === "left",
@@ -102,7 +105,7 @@ function ArticleColumn({ subheaderText, title, children, imageSide }: HomepageSe
 					</h1>
 				</AnimationOnScroll>
 
-				<p className="text-lg my-4">{children}</p>
+				<div className="my-4">{children}</div>
 			</AnimationOnScroll>
 		</div>
 	);
