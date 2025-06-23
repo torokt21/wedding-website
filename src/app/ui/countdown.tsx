@@ -35,7 +35,7 @@ export default function Countdown() {
 	}
 
 	return (
-		<div className="bg-primary-300 mt-10 rounded-3xl p-8 max-w-2xl mx-auto text-center relative md:pt-8">
+		<div className="bg-primary-300 mt-10 rounded-3xl p-8 max-w-2xl mx-auto text-center relative md:pt-8 animate-fade-down animate-duration-400 animate-delay-1000 animate-ease-in">
 			<p
 				className={`${ephesis.className} md:absolute md:top-[-1.4rem] md:left-1/2 md:transform md:-translate-x-1/2 text-3xl md:text-4xl md:text-nowrap mb-5`}>
 				A Boldogító igenre <span className="hidden md:inline">még</span> ennyit kell
