@@ -66,11 +66,11 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 			<Image
 				src="/motive-top-left.svg"
 				alt="Motive"
-				width={200}
-				height={116}
-				className={clsx("absolute -top-10", {
-					"-left-10.5 xl:-top-15 xl:-left-15": imageSide === "left",
-					"-top-10 -right-10.5 xl:-top-15 xl:-right-15 -scale-x-100":
+				width={284}
+				height={268}
+				className={clsx("absolute -top-14 origin-[60px_55px] ", {
+					"-left-15 scale-50 lg:scale-100": imageSide === "left",
+					"-right-55 -scale-x-50 scale-y-50 lg:scale-y-100 lg:-scale-x-100":
 						imageSide === "right",
 				})}
 			/>
