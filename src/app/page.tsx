@@ -24,7 +24,11 @@ export default function Home() {
 				<HomepageSection
 					imageSide="right"
 					subheaderText="Tudnivalók"
-					title="Mikor? Hova? Meddig?"
+					title={
+						<>
+							Mikor? Hova? Meddig?<span className="text-sm">Mennyit?</span>
+						</>
+					}
 					mainImageSrc="/img/home/information-1.jpg"
 					secondaryImageSrc="/img/home/information-2.jpg">
 					<p className="text-lg">
