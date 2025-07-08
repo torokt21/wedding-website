@@ -35,7 +35,7 @@ export default function Navbar() {
 					</ul>
 					<Link
 						href="/rsvp"
-						className={`${cormorant.className} antialiased rounded-full my-2 border border-primary-800 font-bold text-primary-800 border-solid transition-colors flex items-center bg-primary-500 hover:bg-primary-800 hover:text-white text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto uppercase animate-jump animate-once animate-duration-1000 animate-delay-[5000ms] animate-thrice`}>
+						className={`${cormorant.className} antialiased rounded-full my-2 border border-primary-800 font-bold text-primary-800 border-solid transition-colors duration-300 flex items-center bg-primary-500 hover:bg-primary-800 hover:text-white text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto uppercase animate-jump animate-duration-1000 animate-delay-[5000ms] animate-thrice`}>
 						Visszajelzek
 					</Link>
 				</nav>

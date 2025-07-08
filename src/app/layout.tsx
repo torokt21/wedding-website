@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import Footer from "./ui/footer";
 import Head from "next/head";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
@@ -35,6 +36,7 @@ export default function RootLayout({
 			<body className={`${montserrat.className} antialiased`}>
 				<Navbar />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

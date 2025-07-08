@@ -1,6 +1,6 @@
 import Countdown from "./ui/countdown";
 import HomepageSection from "./ui/homepageSection";
-import Link from "next/link";
+import LinkButton from "./ui/linkButton";
 
 export default function Home() {
 	return (
@@ -36,11 +36,8 @@ export default function Home() {
 						menetrendről. A legfontosabb tudnivalókat összegyűjtöttük, hogy majd utólag
 						tudd, hogy minek kellett volna történnie.
 					</p>
-					<Link
-						href="/venue"
-						className="mt-8 inline-block rounded-full bg-background text-black px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-primary-800">
-						Tudj meg többet!
-					</Link>
+
+					<LinkButton href="/venue">Tudj meg többet!</LinkButton>
 				</HomepageSection>
 
 				<HomepageSection
@@ -56,14 +53,9 @@ export default function Home() {
 						adnak a Dinnyesküvőnek.
 					</p>
 
-					<Link
-						href="/venue"
-						className="mt-8 inline-block rounded-full bg-background text-black px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-primary-800">
-						Tudj meg többet!
-					</Link>
+					<LinkButton href="/venue">Tudj meg többet!</LinkButton>
 				</HomepageSection>
 			</main>
-			<footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
 		</div>
 	);
 }
