@@ -33,9 +33,12 @@ export default function RootLayout({
 					}
 				/>
 			</Head>
-			<body className={`${montserrat.className} antialiased`}>
+			<body
+				className={`${montserrat.className} antialiased flex flex-col h-screen justify-between`}>
 				<Navbar />
-				{children}
+
+				<main>{children}</main>
+
 				<Footer />
 			</body>
 		</html>
