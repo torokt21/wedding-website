@@ -2,19 +2,34 @@
 
 import React, { useState } from "react";
 
+import Image from "next/image";
+import LinkButton from "./linkButton";
+import clsx from "clsx";
+import { cormorant } from "./navbar";
+
 type CarouselProps = {
 	images: { src: string; alt?: string }[];
 };
 
+const animationDurationMs = 400; // Animation duration in milliseconds
+
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
 	const [centerIndex, setCenterIndex] = useState(0);
+	const [animatingDirection, setAnimatingDirection] = useState<"left" | "right" | null>(null);
+	const isAnimating = animatingDirection !== null;
 
 	const prev = () => {
+		if (isAnimating) return;
+		setAnimatingDirection("right");
 		setCenterIndex((prev) => (prev - 1 + images.length) % images.length);
+		setTimeout(() => setAnimatingDirection(null), animationDurationMs);
 	};
 
 	const next = () => {
+		if (isAnimating) return;
+		setAnimatingDirection("left");
 		setCenterIndex((prev) => (prev + 1) % images.length);
+		setTimeout(() => setAnimatingDirection(null), animationDurationMs);
 	};
 
 	// Get indices for left, center, right images
@@ -24,148 +39,78 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 		return { left, center: centerIndex, right };
 	};
 
+	const animationClasses = clsx(`animate-duration-[${animationDurationMs}ms]`, {
+		"animate-fade-right animate-once": animatingDirection === "right",
+		"animate-fade-left animate-once": animatingDirection === "left",
+	});
+
 	const { left, center, right } = getIndices();
 
 	return (
-		<div
-			style={{
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "center",
-				background: "#f8fcf7",
-				minHeight: 500,
-				position: "relative",
-				overflow: "hidden",
-			}}>
+		<div className="w-full flex items-center justify-center relative overflow-hidden min-h-[600px]">
 			{/* Decorative background */}
-			<div
-				style={{
-					position: "absolute",
-					left: 0,
-					top: 0,
-					width: "60%",
-					height: "100%",
-					background: "#a8cbb3",
-					borderBottomRightRadius: "40%",
-					zIndex: 0,
-				}}
-			/>
+			<div className="absolute w-full md:w-1/2 left-0 top-0 h-full bg-primary-600 rounded-0 md:rounded-br-[30%] z-0" />
 			{/* Gallery Title */}
 			<div
-				style={{
-					position: "absolute",
-					left: 80,
-					top: 60,
-					zIndex: 2,
-					color: "#7d8b7b",
-				}}>
-				<div style={{ letterSpacing: 2, fontSize: 14, marginBottom: 10 }}>
-					THE WEDDING PARTY
-				</div>
-				<div style={{ fontSize: 48, fontFamily: "serif", fontWeight: 300 }}>
-					OUR GALLERY
-				</div>
+				className={`text-right absolute left-50 top-10 z-2 ${cormorant.className} text-6xl`}>
+				Képeink
 			</div>
 			{/* Carousel Images */}
 			<button
 				onClick={prev}
+				disabled={isAnimating}
 				aria-label="Previous"
-				style={{
-					zIndex: 2,
-					background: "none",
-					border: "none",
-					fontSize: 32,
-					cursor: "pointer",
-					marginRight: 20,
-					color: "#7d8b7b",
-				}}>
+				className="duration-200 z-2 text-3xl text-primary-900 mx-3 hover:scale-110 scale-100">
 				&#8592;
 			</button>
-			<div
-				style={{
-					display: "flex",
-					alignItems: "center",
-					gap: 40,
-					zIndex: 2,
-				}}>
+			<div className="flex items-center gap-0 md:gap-10 z-2">
 				{/* Left Image */}
-				<img
-					src={images[left].src}
-					alt={images[left].alt || ""}
-					style={{
-						width: 320,
-						height: 220,
-						objectFit: "cover",
-						borderRadius: 8,
-						boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
-						opacity: 0.7,
-						transform: "scale(0.92)",
-						transition: "all 0.4s cubic-bezier(.4,0,.2,1)",
-					}}
-				/>
+				<div className={animationClasses}>
+					<Image
+						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[320px] hidden md:block"
+						src={images[left].src}
+						alt={images[left].alt || ""}
+						width={320}
+						height={220}
+					/>
+				</div>
+
 				{/* Center Image */}
-				<img
-					src={images[center].src}
-					alt={images[center].alt || ""}
-					style={{
-						width: 420,
-						height: 300,
-						objectFit: "cover",
-						borderRadius: 12,
-						boxShadow: "0 8px 32px rgba(0,0,0,0.13)",
-						zIndex: 3,
-						transform: "scale(1.05)",
-						transition: "all 0.4s cubic-bezier(.4,0,.2,1)",
-					}}
-				/>
+				<div className={`${animationClasses} py-30`}>
+					<Image
+						src={images[center].src}
+						alt={images[center].alt || ""}
+						width={560}
+						height={400}
+						className={`object-cover h-auto w-[560px] max-h-[400px] rounded-2xl z-3 shadow-2xl`}
+					/>
+				</div>
+
 				{/* Right Image */}
-				<img
-					src={images[right].src}
-					alt={images[right].alt || ""}
-					style={{
-						width: 320,
-						height: 220,
-						objectFit: "cover",
-						borderRadius: 8,
-						boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
-						opacity: 0.7,
-						transform: "scale(0.92)",
-						transition: "all 0.4s cubic-bezier(.4,0,.2,1)",
-					}}
-				/>
+				<div className={animationClasses}>
+					<Image
+						src={images[right].src}
+						alt={images[right].alt || ""}
+						width={320}
+						height={220}
+						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[320px] hidden md:block"
+					/>
+				</div>
 			</div>
+
 			<button
 				onClick={next}
+				disabled={!!animatingDirection}
 				aria-label="Next"
-				style={{
-					zIndex: 2,
-					background: "none",
-					border: "none",
-					fontSize: 32,
-					cursor: "pointer",
-					marginLeft: 20,
-					color: "#7d8b7b",
-				}}>
+				className={`transition-all duration-200 z-2 text-3xl text-primary-900 mx-3 ${
+					isAnimating ? "cursor-not-allowed scale-95" : "hover:scale-110 scale-100"
+				}`}>
 				&#8594;
 			</button>
 			{/* Explore Button */}
-			<button
-				style={{
-					position: "absolute",
-					left: 120,
-					bottom: 80,
-					background: "none",
-					border: "1px solid #7d8b7b",
-					borderRadius: 24,
-					padding: "10px 36px",
-					color: "#7d8b7b",
-					fontSize: 14,
-					letterSpacing: 1,
-					cursor: "pointer",
-					zIndex: 2,
-				}}>
-				EXPLORE
-			</button>
+			<div className="absolute bottom-10 z-2">
+				<LinkButton href={"/gallery"}>Explore</LinkButton>
+			</div>
 		</div>
 	);
 };

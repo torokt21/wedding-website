@@ -3,7 +3,7 @@ import { Cormorant } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
-const cormorant = Cormorant({
+export const cormorant = Cormorant({
 	subsets: ["latin"],
 	style: "normal",
 	weight: "variable",
