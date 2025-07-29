@@ -1,3 +1,4 @@
+import Carousel from "./ui/carousel";
 import Countdown from "./ui/countdown";
 import HomepageSection from "./ui/homepageSection";
 import LinkButton from "./ui/linkButton";
@@ -7,6 +8,14 @@ export default function Home() {
 		<div>
 			<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start pb-30">
 				<Countdown />
+
+				<Carousel
+					images={[
+						{ src: "/img/gallery/01.jpg", alt: "Gallery Image 1" },
+						{ src: "/img/gallery/02.jpg", alt: "Gallery Image 2" },
+						{ src: "/img/gallery/03.jpg", alt: "Gallery Image 3" },
+					]}
+				/>
 
 				<HomepageSection
 					imageSide="left"
