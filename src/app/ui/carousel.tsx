@@ -69,7 +69,7 @@ const Carousel: React.FC = () => {
 					<Image
 						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px] hidden md:block"
 						src={images[left].src}
-						alt={images[left].alt || ""}
+						alt={images[left].description || ""}
 						width={320}
 						height={220}
 					/>
@@ -79,7 +79,7 @@ const Carousel: React.FC = () => {
 				<div className={`${animationClasses} py-30`}>
 					<Image
 						src={images[center].src}
-						alt={images[center].alt || ""}
+						alt={images[center].description || ""}
 						width={560}
 						height={400}
 						className={`object-cover h-auto w-[800px] max-h-[500px] rounded-2xl z-3 shadow-2xl`}
@@ -90,7 +90,7 @@ const Carousel: React.FC = () => {
 				<div className={animationClasses}>
 					<Image
 						src={images[right].src}
-						alt={images[right].alt || ""}
+						alt={images[right].description || ""}
 						width={320}
 						height={220}
 						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px] hidden md:block"

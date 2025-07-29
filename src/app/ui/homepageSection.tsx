@@ -56,10 +56,13 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 					style={{ width: 200, height: 300 }}
 					src={secondaryImageSrc}
 					alt=""
-					className={clsx(`z-10 absolute -bottom-30 hidden xl:block shadow-xl/30`, {
-						"right-40": imageSide === "left",
-						"left-40": imageSide === "right",
-					})}
+					className={clsx(
+						`z-10 absolute -bottom-30 hidden xl:block shadow-xl/30 object-cover`,
+						{
+							"right-40": imageSide === "left",
+							"left-40": imageSide === "right",
+						}
+					)}
 				/>
 			)}
 
