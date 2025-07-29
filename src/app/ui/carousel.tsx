@@ -4,19 +4,18 @@ import React, { useState } from "react";
 
 import Image from "next/image";
 import LinkButton from "./linkButton";
-import clsx from "clsx";
 import { cormorant } from "./navbar";
+import data from "../gallery/data";
 
-type CarouselProps = {
-	images: { src: string; alt?: string }[];
-};
+//import clsx from "clsx";
 
-const animationDurationMs = 400; // Animation duration in milliseconds
+const animationDurationMs = 0; // Animation duration in milliseconds
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
+const Carousel: React.FC = () => {
 	const [centerIndex, setCenterIndex] = useState(0);
 	const [animatingDirection, setAnimatingDirection] = useState<"left" | "right" | null>(null);
 	const isAnimating = animatingDirection !== null;
+	const images = data;
 
 	const prev = () => {
 		if (isAnimating) return;
@@ -39,10 +38,11 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 		return { left, center: centerIndex, right };
 	};
 
-	const animationClasses = clsx(`animate-duration-[${animationDurationMs}ms]`, {
+	/*const animationClasses = clsx(`animate-duration-[${animationDurationMs}ms]`, {
 		"animate-fade-right animate-once": animatingDirection === "right",
 		"animate-fade-left animate-once": animatingDirection === "left",
-	});
+	});*/
+	const animationClasses = "";
 
 	const { left, center, right } = getIndices();
 
@@ -67,7 +67,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 				{/* Left Image */}
 				<div className={animationClasses}>
 					<Image
-						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[320px] hidden md:block"
+						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px] hidden md:block"
 						src={images[left].src}
 						alt={images[left].alt || ""}
 						width={320}
@@ -82,7 +82,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 						alt={images[center].alt || ""}
 						width={560}
 						height={400}
-						className={`object-cover h-auto w-[560px] max-h-[400px] rounded-2xl z-3 shadow-2xl`}
+						className={`object-cover h-auto w-[800px] max-h-[500px] rounded-2xl z-3 shadow-2xl`}
 					/>
 				</div>
 
@@ -93,7 +93,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 						alt={images[right].alt || ""}
 						width={320}
 						height={220}
-						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[320px] hidden md:block"
+						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px] hidden md:block"
 					/>
 				</div>
 			</div>
@@ -102,14 +102,12 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 				onClick={next}
 				disabled={!!animatingDirection}
 				aria-label="Next"
-				className={`transition-all duration-200 z-2 text-3xl text-primary-900 mx-3 ${
-					isAnimating ? "cursor-not-allowed scale-95" : "hover:scale-110 scale-100"
-				}`}>
+				className={`transition-all duration-200 z-2 text-3xl text-primary-900 mx-3`}>
 				&#8594;
 			</button>
 			{/* Explore Button */}
 			<div className="absolute bottom-10 z-2">
-				<LinkButton href={"/gallery"}>Explore</LinkButton>
+				<LinkButton href={"/gallery"}>Nézd meg mindet!</LinkButton>
 			</div>
 		</div>
 	);
