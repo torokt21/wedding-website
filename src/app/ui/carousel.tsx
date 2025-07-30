@@ -76,6 +76,15 @@ const Carousel: React.FC = () => {
 					/>
 				</div>
 
+				{/* Left Decorative Motive Image */}
+				<Image
+					src="/motive-bottom-right.svg"
+					alt="Motive"
+					width={320}
+					height={200}
+					className={"absolute bottom-30 left-20 rotate-90 -z-1 hidden lg:block"}
+				/>
+
 				{/* Center Image */}
 				<div className={`${animationClasses} py-30`}>
 					<Image
@@ -101,6 +110,15 @@ const Carousel: React.FC = () => {
 						priority
 					/>
 				</div>
+
+				{/* Right Decorative Motive Image */}
+				<Image
+					src="/motive-bottom-right.svg"
+					alt="Motive"
+					width={320}
+					height={200}
+					className={"absolute top-20 right-10 -rotate-90 -z-20 hidden lg:block"}
+				/>
 			</div>
 
 			<button
