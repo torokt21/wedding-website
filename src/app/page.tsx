@@ -9,8 +9,6 @@ export default function Home() {
 			<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start pb-30">
 				<Countdown />
 
-				<Carousel />
-
 				<HomepageSection
 					imageSide="left"
 					subheaderText="Hili hali halihó"
@@ -58,6 +56,9 @@ export default function Home() {
 
 					<LinkButton href="/venue">Tudj meg többet!</LinkButton>
 				</HomepageSection>
+				<div className="my-5 md:my-25">
+					<Carousel />
+				</div>
 			</main>
 		</div>
 	);

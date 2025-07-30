@@ -117,7 +117,7 @@ const Carousel: React.FC = () => {
 					alt="Motive"
 					width={320}
 					height={200}
-					className={"absolute top-20 right-10 -rotate-90 -z-20 hidden lg:block"}
+					className={"absolute top-20 right-10 -rotate-90 -z-20 hidden md:block"}
 				/>
 			</div>
 
