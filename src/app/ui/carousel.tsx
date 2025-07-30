@@ -4,12 +4,11 @@ import React, { useState } from "react";
 
 import Image from "next/image";
 import LinkButton from "./linkButton";
+import clsx from "clsx";
 import { cormorant } from "./navbar";
 import data from "../gallery/data";
 
-//import clsx from "clsx";
-
-const animationDurationMs = 0; // Animation duration in milliseconds
+const animationDurationMs = 400; // Animation duration in milliseconds
 
 const Carousel: React.FC = () => {
 	const [centerIndex, setCenterIndex] = useState(0);
@@ -21,14 +20,14 @@ const Carousel: React.FC = () => {
 		if (isAnimating) return;
 		setAnimatingDirection("right");
 		setCenterIndex((prev) => (prev - 1 + images.length) % images.length);
-		setTimeout(() => setAnimatingDirection(null), animationDurationMs);
+		setTimeout(() => setAnimatingDirection(null), animationDurationMs + 500);
 	};
 
 	const next = () => {
 		if (isAnimating) return;
 		setAnimatingDirection("left");
 		setCenterIndex((prev) => (prev + 1) % images.length);
-		setTimeout(() => setAnimatingDirection(null), animationDurationMs);
+		setTimeout(() => setAnimatingDirection(null), animationDurationMs + 500);
 	};
 
 	// Get indices for left, center, right images
@@ -38,21 +37,21 @@ const Carousel: React.FC = () => {
 		return { left, center: centerIndex, right };
 	};
 
-	/*const animationClasses = clsx(`animate-duration-[${animationDurationMs}ms]`, {
+	const animationClasses = clsx(`animate-duration-[${animationDurationMs}ms]`, {
 		"animate-fade-right animate-once": animatingDirection === "right",
 		"animate-fade-left animate-once": animatingDirection === "left",
-	});*/
-	const animationClasses = "";
+	});
+	//const animationClasses = "";
 
 	const { left, center, right } = getIndices();
 
 	return (
 		<div className="w-full flex items-center justify-center relative overflow-hidden min-h-[600px]">
 			{/* Decorative background */}
-			<div className="absolute w-full md:w-1/2 left-0 top-0 h-full bg-primary-600 rounded-0 md:rounded-br-[30%] z-0" />
+			<div className="absolute w-full md:w-2/3 lg:w-1/2 left-0 top-0 h-full bg-primary-600 rounded-0 md:rounded-br-[30%] z-0" />
 			{/* Gallery Title */}
 			<div
-				className={`text-right absolute left-50 top-10 z-2 ${cormorant.className} text-6xl`}>
+				className={`text-right absolute left-[50%] top-8 z-2 ${cormorant.className} text-6xl translate-x-[-50%] md:translate-x-[-40%] lg:translate-x-[-110%]`}>
 				Képeink
 			</div>
 			{/* Carousel Images */}
@@ -65,13 +64,15 @@ const Carousel: React.FC = () => {
 			</button>
 			<div className="flex items-center gap-0 md:gap-10 z-2">
 				{/* Left Image */}
-				<div className={animationClasses}>
+				<div>
 					<Image
 						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px] hidden md:block"
 						src={images[left].src}
 						alt={images[left].description || ""}
-						width={320}
-						height={220}
+						width={420}
+						height={300}
+						unoptimized
+						priority
 					/>
 				</div>
 
@@ -80,20 +81,24 @@ const Carousel: React.FC = () => {
 					<Image
 						src={images[center].src}
 						alt={images[center].description || ""}
-						width={560}
-						height={400}
+						width={500}
+						height={500}
 						className={`object-cover h-auto w-[800px] max-h-[500px] rounded-2xl z-3 shadow-2xl`}
+						priority
+						unoptimized
 					/>
 				</div>
 
 				{/* Right Image */}
-				<div className={animationClasses}>
+				<div>
 					<Image
 						src={images[right].src}
 						alt={images[right].description || ""}
-						width={320}
-						height={220}
+						width={420}
+						height={300}
 						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px] hidden md:block"
+						unoptimized
+						priority
 					/>
 				</div>
 			</div>
@@ -106,7 +111,7 @@ const Carousel: React.FC = () => {
 				&#8594;
 			</button>
 			{/* Explore Button */}
-			<div className="absolute bottom-10 z-2">
+			<div className="absolute bottom-10 z-2 left-1/2 md:left-1/3 transform -translate-x-1/2">
 				<LinkButton href={"/gallery"}>Nézd meg mindet!</LinkButton>
 			</div>
 		</div>
