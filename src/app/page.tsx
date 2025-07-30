@@ -56,9 +56,7 @@ export default function Home() {
 
 					<LinkButton href="/venue">Tudj meg többet!</LinkButton>
 				</HomepageSection>
-				<div className="my-5 md:my-25">
-					<Carousel />
-				</div>
+				<Carousel />
 			</main>
 		</div>
 	);

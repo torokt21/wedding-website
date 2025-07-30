@@ -46,7 +46,7 @@ const Carousel: React.FC = () => {
 	const { left, center, right } = getIndices();
 
 	return (
-		<div className="w-full flex items-center justify-center relative overflow-hidden min-h-[600px]">
+		<div className="w-full flex items-center justify-center relative overflow-hidden min-h-[600px] my-5 md:my-25">
 			{/* Decorative background */}
 			<div className="absolute w-full md:w-2/3 lg:w-1/2 left-0 top-0 h-full bg-primary-600 rounded-0 md:rounded-br-[30%] z-0" />
 			{/* Gallery Title */}
