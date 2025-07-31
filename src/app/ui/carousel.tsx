@@ -59,7 +59,7 @@ const Carousel: React.FC = () => {
 				onClick={prev}
 				disabled={isAnimating}
 				aria-label="Previous"
-				className="duration-200 z-2 text-3xl text-primary-900 mx-3 hover:scale-110 scale-100">
+				className="duration-200 z-2 text-3xl text-primary-900 mx-3 hover:scale-110 scale-100 cursor-pointer">
 				&#8592;
 			</button>
 			<div className="flex items-center gap-0 md:gap-10 z-2">
@@ -131,7 +131,7 @@ const Carousel: React.FC = () => {
 				onClick={next}
 				disabled={!!animatingDirection}
 				aria-label="Next"
-				className={`transition-all duration-200 z-2 text-3xl text-primary-900 mx-3`}>
+				className={`transition-all duration-200 z-2 text-3xl text-primary-900 mx-3 cursor-pointer`}>
 				&#8594;
 			</button>
 			{/* Explore Button */}
