@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Container from "../ui/container";
@@ -9,7 +9,7 @@ import ImageModal from "../ui/imageModal";
 import { cormorant } from "../ui/navbar";
 import data from "./data";
 
-export default function VenuePage() {
+export default function GalleryPage() {
 	const images = data;
 	const router = useRouter();
 	const searchParams = useSearchParams();
@@ -62,20 +62,22 @@ export default function VenuePage() {
 				Itt találod a kedvenc közös képeinket. Kattints a képekre a nagyításhoz!
 			</p>
 			<Container>
-				<div className="grid grid-cols-2 md:grid-cols-6 gap-4 my-10">
-					{images.map((image, index) => (
-						<div key={index} className="aspect-square">
-							<Image
-								src={image.src}
-								width={500}
-								height={500}
-								alt={image.description}
-								className="object-cover rounded-lg shadow-lg aspect-square cursor-pointer"
-								onClick={() => openModal(index)}
-							/>
-						</div>
-					))}
-				</div>
+				<Suspense fallback={<div className="text-center py-10">Töltés...</div>}>
+					<div className="grid grid-cols-2 md:grid-cols-6 gap-4 my-10">
+						{images.map((image, index) => (
+							<div key={index} className="aspect-square">
+								<Image
+									src={image.src}
+									width={500}
+									height={500}
+									alt={image.description}
+									className="object-cover rounded-lg shadow-lg aspect-square cursor-pointer"
+									onClick={() => openModal(index)}
+								/>
+							</div>
+						))}
+					</div>
+				</Suspense>
 			</Container>
 
 			{/* Image Modal */}
