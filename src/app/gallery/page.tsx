@@ -9,7 +9,7 @@ import ImageModal from "../ui/imageModal";
 import { cormorant } from "../ui/navbar";
 import data from "./data";
 
-export default function GalleryPage() {
+function GalleryContent() {
 	const images = data;
 	const router = useRouter();
 	const searchParams = useSearchParams();
@@ -62,22 +62,20 @@ export default function GalleryPage() {
 				Itt találod a kedvenc közös képeinket. Kattints a képekre a nagyításhoz!
 			</p>
 			<Container>
-				<Suspense fallback={<div className="text-center py-10">Töltés...</div>}>
-					<div className="grid grid-cols-2 md:grid-cols-6 gap-4 my-10">
-						{images.map((image, index) => (
-							<div key={index} className="aspect-square">
-								<Image
-									src={image.src}
-									width={500}
-									height={500}
-									alt={image.description}
-									className="object-cover rounded-lg shadow-lg aspect-square cursor-pointer"
-									onClick={() => openModal(index)}
-								/>
-							</div>
-						))}
-					</div>
-				</Suspense>
+				<div className="grid grid-cols-2 md:grid-cols-6 gap-4 my-10">
+					{images.map((image, index) => (
+						<div key={index} className="aspect-square">
+							<Image
+								src={image.src}
+								width={500}
+								height={500}
+								alt={image.description}
+								className="object-cover rounded-lg shadow-lg aspect-square cursor-pointer"
+								onClick={() => openModal(index)}
+							/>
+						</div>
+					))}
+				</div>
 			</Container>
 
 			{/* Image Modal */}
@@ -92,5 +90,13 @@ export default function GalleryPage() {
 				/>
 			)}
 		</div>
+	);
+}
+
+export default function GalleryPage() {
+	return (
+		<Suspense fallback={<div className="text-center py-10">Töltés...</div>}>
+			<GalleryContent />
+		</Suspense>
 	);
 }
