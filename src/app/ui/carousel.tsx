@@ -94,7 +94,7 @@ const Carousel: React.FC = () => {
 						alt={images[center].description || ""}
 						width={500}
 						height={500}
-						className={`object-cover h-auto w-[800px] max-h-[500px] rounded-2xl z-3 shadow-2xl`}
+						className={`object-cover h-auto w-[800px] max-h-[500px] rounded-2xl z-3 shadow-2xl aspect-[14/10]`}
 						priority
 						unoptimized
 					/>
