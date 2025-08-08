@@ -4,10 +4,16 @@ import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Container from "../ui/container";
+import { Cormorant } from "next/font/google";
 import Image from "next/image";
 import ImageModal from "../ui/imageModal";
-import { cormorant } from "../ui/navbar";
 import data from "./data";
+
+const cormorant = Cormorant({
+	subsets: ["latin"],
+	style: "normal",
+	weight: "600",
+});
 
 function GalleryContent() {
 	const images = data;
@@ -54,14 +60,17 @@ function GalleryContent() {
 
 	return (
 		<div>
-			<h1
-				className={`text-3xl xl:text-5xl font-bold ${cormorant.className} antialiased uppercase my-10 text-center`}>
-				Galéria
-			</h1>
-			<p className="text-center text-lg mb-10">
-				Itt találod a kedvenc közös képeinket. Kattints a képekre a nagyításhoz!
-			</p>
-			<Container>
+			<Container className="py-16">
+				{/* Header Section */}
+				<div className="text-center mb-12">
+					<h1
+						className={`${cormorant.className} text-4xl md:text-5xl lg:text-6xl text-primary-900 mb-4`}>
+						Galéria
+					</h1>
+					<p className="text-lg text-primary-800 max-w-2xl mx-auto">
+						Itt találod a kedvenc közös képeinket. Kattints a képekre a nagyításhoz!
+					</p>
+				</div>
 				<div className="grid grid-cols-2 md:grid-cols-6 gap-4 my-10">
 					{images.map((image, index) => (
 						<div key={index} className="aspect-square">

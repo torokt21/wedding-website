@@ -6,7 +6,7 @@ import Link from "next/link";
 export const cormorant = Cormorant({
 	subsets: ["latin"],
 	style: "normal",
-	weight: "variable",
+	weight: "600",
 });
 
 export default function Navbar() {
