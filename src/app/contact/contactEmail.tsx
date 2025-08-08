@@ -1,12 +1,9 @@
 import {
 	Body,
-	Button,
 	Container,
 	Head,
-	Hr,
 	Html,
 	Img,
-	Link,
 	Preview,
 	Row,
 	Section,
@@ -18,10 +15,18 @@ interface ContactEmailProps {
 	message?: string;
 }
 
-const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "";
+const baseUrl = process.env.VERCEL_URL || "";
 
 export const ContactEmail = ({ senderName, message }: ContactEmailProps) => {
 	const previewText = `${senderName} üzenetet küldött: ${message}`;
+	const formattedMessage = message?.split("\n").map(function (item, i) {
+		return (
+			<span key={i}>
+				{item}
+				<br />
+			</span>
+		);
+	});
 
 	return (
 		<Html>
@@ -32,61 +37,18 @@ export const ContactEmail = ({ senderName, message }: ContactEmailProps) => {
 				<Container style={container}>
 					<Section>
 						<Img
-							src={`${baseUrl}/static/airbnb-logo.png`}
+							style={img}
+							src={`${baseUrl}/img/dinnyeskuvo.svg`}
 							width="96"
 							height="30"
-							alt="Airbnb"
+							alt="Dinnyesküvő"
 						/>
 					</Section>
 					<Section></Section>
 					<Section style={{ paddingBottom: "20px" }}>
 						<Row>
 							<Text style={heading}>{senderName} üzenete:</Text>
-							<Text style={review}>{message}</Text>
-							<Text style={paragraph}>
-								Now that the review period is over, we’ve posted {senderName}
-								’s review to your Airbnb profile.
-							</Text>
-							<Text style={{ ...paragraph, paddingBottom: "16px" }}>
-								While it’s too late to write a review of your own, you can send your
-								feedback to {senderName} using your Airbnb message thread.
-							</Text>
-
-							<Button style={button} href="https://www.airbnb.com">
-								Send My Feedback
-							</Button>
-						</Row>
-					</Section>
-
-					<Hr style={hr} />
-
-					<Section>
-						<Row>
-							<Text style={{ ...paragraph, fontWeight: "700" }}>
-								Common questions
-							</Text>
-							<Text>
-								<Link href="https://www.airbnb.com" style={link}>
-									How do reviews work?
-								</Link>
-							</Text>
-							<Text>
-								<Link href="https://www.airbnb.com" style={link}>
-									How do star ratings work?
-								</Link>
-							</Text>
-							<Text>
-								<Link href="https://www.airbnb.com" style={link}>
-									Can I leave a review after 14 days?
-								</Link>
-							</Text>
-							<Hr style={hr} />
-							<Text style={footer}>
-								Airbnb, Inc., 888 Brannan St, San Francisco, CA 94103
-							</Text>
-							<Link href="https://www.airbnb.com" style={reportLink}>
-								Report unsafe behavior
-							</Link>
+							<Text style={review}>{formattedMessage}</Text>
 						</Row>
 					</Section>
 				</Container>
@@ -101,6 +63,10 @@ const main = {
 	backgroundColor: "#ffffff",
 	fontFamily:
 		'-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+};
+
+const img = {
+	margin: "0 auto",
 };
 
 const container = {
@@ -128,38 +94,4 @@ const review = {
 	padding: "24px",
 	backgroundColor: "#f2f3f3",
 	borderRadius: "4px",
-};
-
-const button = {
-	backgroundColor: "#ff5a5f",
-	borderRadius: "3px",
-	color: "#fff",
-	fontSize: "18px",
-	padding: "19px 30px",
-	textDecoration: "none",
-	textAlign: "center" as const,
-	display: "block",
-};
-
-const link = {
-	...paragraph,
-	color: "#ff5a5f",
-	display: "block",
-};
-
-const reportLink = {
-	fontSize: "14px",
-	color: "#9ca299",
-	textDecoration: "underline",
-};
-
-const hr = {
-	borderColor: "#cccccc",
-	margin: "20px 0",
-};
-
-const footer = {
-	color: "#9ca299",
-	fontSize: "14px",
-	marginBottom: "10px",
 };

@@ -67,7 +67,7 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 			)}
 
 			<Image
-				src="/motive-top-left.svg"
+				src="/img/motive-top-left.svg"
 				alt="Motive"
 				width={284}
 				height={268}
@@ -79,7 +79,7 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 			/>
 
 			<Image
-				src="/motive-bottom-right.svg"
+				src="/img/motive-bottom-right.svg"
 				alt="Motive"
 				width={200}
 				height={188}

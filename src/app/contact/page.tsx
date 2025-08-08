@@ -34,10 +34,6 @@ export default function ContactPage() {
 		setSubmitStatus(null);
 
 		try {
-			// Here you would typically send the form data to your backend
-			// For now, we'll simulate a successful submission
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-
 			await SendEmailAction(formData.name, formData.email, formData.message);
 
 			setSubmitStatus("success");
@@ -158,6 +154,8 @@ export default function ContactPage() {
 								Enikő
 							</h3>
 							<p className="text-primary-800">Menyasszony</p>
+							<p className="text-primary-800">Főszervező</p>
+							<p className="text-primary-800">Ügyintéző</p>
 							<p className="text-sm text-primary-700 mt-2">
 								Minden szervezéssel kapcsolatos kérdés
 							</p>
@@ -166,9 +164,11 @@ export default function ContactPage() {
 							<h3 className={`${cormorant.className} text-2xl text-primary-900 mb-2`}>
 								Tamás
 							</h3>
-							<p className="text-primary-800">Vőlegény</p>
+							<p className="text-primary-800">Díszvendég</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
 							<p className="text-sm text-primary-700 mt-2">
-								Technikai és egyéb kérdések
+								Ha nincs kivel beszélgetned
 							</p>
 						</div>
 					</div>

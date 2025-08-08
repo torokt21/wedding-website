@@ -78,7 +78,7 @@ const Carousel: React.FC = () => {
 					<div className="relative">
 						{/* Left Decorative Motive Image */}
 						<Image
-							src="/motive-bottom-right.svg"
+							src="/img/motive-bottom-right.svg"
 							alt="Motive"
 							width={320}
 							height={200}
@@ -115,7 +115,7 @@ const Carousel: React.FC = () => {
 					<div className="relative">
 						{/* Right Decorative Motive Image */}
 						<Image
-							src="/motive-bottom-right.svg"
+							src="/img/motive-bottom-right.svg"
 							alt="Motive"
 							width={320}
 							height={200}
