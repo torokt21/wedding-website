@@ -14,7 +14,7 @@ const Carousel: React.FC = () => {
 	const [centerIndex, setCenterIndex] = useState(0);
 	const [animatingDirection, setAnimatingDirection] = useState<"left" | "right" | null>(null);
 	const isAnimating = animatingDirection !== null;
-	const images = data;
+	const images = data.filter((img) => img.showOnHomepage);
 
 	const prev = () => {
 		if (isAnimating) return;
