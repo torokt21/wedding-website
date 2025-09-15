@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-	title: "👰🍉🤵 - Dinnyesküvő",
+	title: "Dinnyesküvő",
 	description: "Enikő és Tamás eskövőjének hivatalos weboldala",
 	icons: {
 		icon: "/favicon.ico",
