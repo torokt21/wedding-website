@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 	title: "👰🍉🤵 - Dinnyesküvő",
 	description: "Enikő és Tamás eskövőjének hivatalos weboldala",
 	icons: {
-		icon: "/favicon.png",
+		icon: "/favicon.ico",
 	},
 };
 

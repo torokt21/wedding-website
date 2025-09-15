@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-import { Ephesis } from "next/font/google";
+import { Parisienne } from "next/font/google";
 import React from "react";
 
-const ephesis = Ephesis({
+const parisienne = Parisienne({
 	subsets: ["latin"],
 	weight: "400",
 	style: "normal",
@@ -41,8 +41,8 @@ export default function Countdown() {
 	return (
 		<div className="bg-primary-300 mt-10 rounded-3xl px-2 pb-8 max-w-2xl w-full mx-auto text-center relative md:pt-8 animate-fade-down animate-duration-400 animate-delay-100 animate-ease-in">
 			<p
-				className={`${ephesis.className} md:absolute md:top-[-1.4rem] md:left-1/2 md:transform md:-translate-x-1/2 text-3xl md:text-4xl md:text-nowrap mb-5`}>
-				A Boldogító igenre <span className="hidden md:inline">még</span> ennyit kell
+				className={`${parisienne.className} md:absolute md:top-[-1.4rem] md:left-1/2 md:transform md:-translate-x-1/2 text-3xl md:text-4xl md:text-nowrap mb-5`}>
+				A boldogító igenre <span className="hidden md:inline">még</span> ennyit kell
 				várnunk:
 			</p>
 			<div className="grid grid-cols-4 gap-2 md:gap-4">
@@ -60,7 +60,7 @@ function DisplayField({ value, label }: { value: number; label: string }) {
 		<div className="bg-primary-500 rounded-3xl py-6 relative">
 			<p className="text-2xl md:text-3xl lg:text-3xl font-serif">{value}</p>
 			<p
-				className={`${ephesis.className} text-2xl md:text-4xl absolute bottom-[-1.2rem] left-1/2 transform -translate-x-1/2`}>
+				className={`${parisienne.className} text-2xl md:text-3xl absolute bottom-[-1.2rem] left-1/2 transform -translate-x-1/2`}>
 				{label}
 			</p>
 		</div>

@@ -38,9 +38,9 @@ export const ContactEmail = ({ senderName, message }: ContactEmailProps) => {
 					<Section>
 						<Img
 							style={img}
-							src={`${baseUrl}/img/dinnyeskuvo.svg`}
-							width="96"
-							height="30"
+							src={`${baseUrl}/img/dinnyeskuvo.png`}
+							width="268"
+							height="45"
 							alt="Dinnyesküvő"
 						/>
 					</Section>

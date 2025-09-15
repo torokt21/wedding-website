@@ -48,10 +48,10 @@ function Logo() {
 	return (
 		<Link href="/">
 			<Image
-				src="img/dinnyeskuvo.svg"
-				className="h-[45px] w-[150px]"
+				src="/img/dinnyeskuvo.png"
+				className="h-[45px] w-[268px]"
 				alt="Dinnyesküvő"
-				width={150}
+				width={268}
 				height={45}
 			/>
 		</Link>
