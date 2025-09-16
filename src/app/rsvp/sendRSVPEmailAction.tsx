@@ -19,7 +19,7 @@ async function SendRSVPEmailAction(formData: RSVPFormData) {
 	// It can be called from the form submission handler
 
 	const emailHtml = await render(
-		<RSVPEmail 
+		<RSVPEmail
 			name={formData.name}
 			companions={formData.companions}
 			email={formData.email}
@@ -28,7 +28,8 @@ async function SendRSVPEmailAction(formData: RSVPFormData) {
 			allergies={formData.allergies}
 			songRequests={formData.songRequests}
 		/>
-	);	await transporter.sendMail({
+	);
+	await transporter.sendMail({
 		from: process.env.FROM_EMAIL,
 		to: process.env.CONTACT_EMAILS?.split(",") || [],
 		subject: `RSVP - ${formData.name} ${formData.canAttend === "igen" ? "részt vesz" : "nem vesz részt"}`,

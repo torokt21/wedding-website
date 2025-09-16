@@ -31,10 +31,21 @@ export default function RsvpPage() {
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
 	) => {
 		const { name, value } = e.target;
-		setFormData((prev) => ({
-			...prev,
-			[name]: value,
-		}));
+		setFormData((prev) => {
+			const next = {
+				...prev,
+				[name]: value,
+			};
+
+			// If the guest indicates they cannot attend, clear all non-required fields
+			if (name === "canAttend" && value === "nem") {
+				next.transportation = "";
+				next.allergies = "";
+				next.songRequests = "";
+			}
+
+			return next;
+		});
 	};
 
 	const addCompanion = () => {
@@ -118,55 +129,53 @@ export default function RsvpPage() {
 						</div>
 
 						{/* Companions Section */}
-						<div>
-							<label className="block text-sm font-medium text-primary-900 mb-2">
-								Kísérők
-							</label>
-							<p className="text-sm text-primary-600 mb-3">
-								Ha kísérőkkel érkezel, add meg a nevüket:
-							</p>
+						<label className="block text-sm font-medium text-primary-900 mb-2">
+							Kísérők
+						</label>
+						<p className="text-sm text-primary-600 mb-3">
+							Ha több ember nevében válaszolsz, kérjük add meg a nevüket!
+						</p>
 
-							{/* Companions List */}
-							{formData.companions.length > 0 && (
-								<div className="space-y-2 mb-4">
-									{formData.companions.map((companion, index) => (
-										<div
-											key={index}
-											className="flex items-center justify-between bg-primary-100 p-3 rounded-lg border border-primary-200">
-											<span className="text-primary-900">{companion}</span>
-											<button
-												type="button"
-												onClick={() => removeCompanion(index)}
-												className="text-red-600 hover:text-red-800 font-medium text-sm">
-												Törlés
-											</button>
-										</div>
-									))}
-								</div>
-							)}
-
-							{/* Add Companion */}
-							<div className="flex gap-2">
-								<input
-									type="text"
-									value={newCompanion}
-									onChange={(e) => setNewCompanion(e.target.value)}
-									className="flex-1 px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white"
-									placeholder="Kísérő neve..."
-									onKeyPress={(e) => {
-										if (e.key === "Enter") {
-											e.preventDefault();
-											addCompanion();
-										}
-									}}
-								/>
-								<button
-									type="button"
-									onClick={addCompanion}
-									className="px-6 py-3 bg-primary-800 text-white rounded-lg hover:bg-primary-900 transition-colors duration-200 font-medium">
-									Hozzáad
-								</button>
+						{/* Companions List */}
+						{formData.companions.length > 0 && (
+							<div className="space-y-2 mb-4">
+								{formData.companions.map((companion, index) => (
+									<div
+										key={index}
+										className="flex items-center justify-between bg-primary-100 p-3 rounded-lg border border-primary-200">
+										<span className="text-primary-900">{companion}</span>
+										<button
+											type="button"
+											onClick={() => removeCompanion(index)}
+											className="text-red-600 hover:text-red-800 font-medium text-sm">
+											Törlés
+										</button>
+									</div>
+								))}
 							</div>
+						)}
+
+						{/* Add Companion */}
+						<div className="flex gap-2">
+							<input
+								type="text"
+								value={newCompanion}
+								onChange={(e) => setNewCompanion(e.target.value)}
+								className="flex-1 px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white"
+								placeholder="Kísérő neve..."
+								onKeyPress={(e) => {
+									if (e.key === "Enter") {
+										e.preventDefault();
+										addCompanion();
+									}
+								}}
+							/>
+							<button
+								type="button"
+								onClick={addCompanion}
+								className="px-6 py-3 bg-primary-800 text-white rounded-lg hover:bg-primary-900 transition-colors duration-200 font-medium">
+								Hozzáad
+							</button>
 						</div>
 
 						{/* Email Field */}
@@ -209,65 +218,73 @@ export default function RsvpPage() {
 						</div>
 
 						{/* Transportation Field */}
-						<div>
-							<label
-								htmlFor="transportation"
-								className="block text-sm font-medium text-primary-900 mb-2">
-								Hogyan tervezel eljutni a helyszínre? *
-							</label>
-							<select
-								id="transportation"
-								name="transportation"
-								value={formData.transportation}
-								onChange={handleChange}
-								required
-								className="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white">
-								<option value="">Válassz...</option>
-								<option value="sajat-auto">Autóval/taxival érkezem</option>
-								<option value="tomegkozlekedes">Tömegközlekedéssel érkezem</option>
-							</select>
-							<p className="text-sm text-primary-600 mt-2">
-								💡 <strong>Fontos:</strong> Ha tömegközlekedéssel érkezel, akkor
-								valaki a buszmegállótól autóval elvisz a helyszínre. További
-								információkat majd e-mailben küldünk.
-							</p>
-						</div>
+						{formData.canAttend !== "nem" && (
+							<div>
+								<label
+									htmlFor="transportation"
+									className="block text-sm font-medium text-primary-900 mb-2">
+									Hogyan tervezel eljutni a helyszínre? *
+								</label>
+								<select
+									id="transportation"
+									name="transportation"
+									value={formData.transportation}
+									onChange={handleChange}
+									required
+									className="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white">
+									<option value="">Válassz...</option>
+									<option value="sajat-auto">Autóval/taxival érkezem</option>
+									<option value="tomegkozlekedes">
+										Tömegközlekedéssel érkezem
+									</option>
+								</select>
+								<p className="text-sm text-primary-600 mt-2">
+									💡 <strong>Fontos:</strong> Ha tömegközlekedéssel érkezel, akkor
+									valaki a buszmegállótól autóval elvisz a helyszínre. További
+									információkat majd e-mailben küldünk.
+								</p>
+							</div>
+						)}
 
 						{/* Allergies Field */}
-						<div>
-							<label
-								htmlFor="allergies"
-								className="block text-sm font-medium text-primary-900 mb-2">
-								Allergiák vagy speciális étrend
-							</label>
-							<textarea
-								id="allergies"
-								name="allergies"
-								value={formData.allergies}
-								onChange={handleChange}
-								rows={4}
-								className="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white resize-vertical"
-								placeholder="Van allergiád vagy követsz valamilyen speciális étrendet? (pl. vegetáriánus, vegán, gluténmentes, stb.) Amennyiben egy kísérőnek van ilyen igénye, kérjük, azt is itt tüntesd fel."
-							/>
-						</div>
+						{formData.canAttend !== "nem" && (
+							<div>
+								<label
+									htmlFor="allergies"
+									className="block text-sm font-medium text-primary-900 mb-2">
+									Allergiák vagy speciális étrend
+								</label>
+								<textarea
+									id="allergies"
+									name="allergies"
+									value={formData.allergies}
+									onChange={handleChange}
+									rows={4}
+									className="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white resize-vertical"
+									placeholder="Van allergiád vagy követsz valamilyen speciális étrendet? (pl. vegetáriánus, vegán, gluténmentes, stb.) Amennyiben egy kísérőnek van ilyen igénye, kérjük, azt is itt tüntesd fel."
+								/>
+							</div>
+						)}
 
 						{/* Song Requests Field */}
-						<div>
-							<label
-								htmlFor="songRequests"
-								className="block text-sm font-medium text-primary-900 mb-2">
-								Zenei kívánságok
-							</label>
-							<textarea
-								id="songRequests"
-								name="songRequests"
-								value={formData.songRequests}
-								onChange={handleChange}
-								rows={4}
-								className="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white resize-vertical"
-								placeholder="Van olyan zene, amit szívesen hallgatnál az esküvőn? Írd ide a kedvenc számaídat vagy előadóidat!"
-							/>
-						</div>
+						{formData.canAttend !== "nem" && (
+							<div>
+								<label
+									htmlFor="songRequests"
+									className="block text-sm font-medium text-primary-900 mb-2">
+									Zenei kívánságok
+								</label>
+								<textarea
+									id="songRequests"
+									name="songRequests"
+									value={formData.songRequests}
+									onChange={handleChange}
+									rows={4}
+									className="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white resize-vertical"
+									placeholder="Van olyan zene, amit szívesen hallgatnál az esküvőn? Írd ide a kedvenc számaídat vagy előadóidat!"
+								/>
+							</div>
+						)}
 
 						{/* Submit Button */}
 						<div className="pt-4">
