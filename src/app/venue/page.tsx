@@ -17,23 +17,23 @@ export default function VenuePage() {
 	// Placeholder venue images - you can replace these with actual Levendulás photos
 	const venueImages = [
 		{
-			src: "/img/home/venue-1.jpg",
-			alt: "Levendulás főépület",
-			title: "Főépület",
+			src: "/img/venue/venue.jpg",
+			alt: "Levendulás bálterem",
+			title: "Bálterem",
 		},
 		{
-			src: "/img/venue/venue-2.jpg",
+			src: "/img/venue/levander.jpg",
 			alt: "Levendulás kert",
 			title: "Levendulamező",
 		},
 		{
-			src: "/img/home/venue-1.jpg",
+			src: "/img/venue/ceremony.jpg",
 			alt: "Ceremónia helyszín",
 			title: "Ceremónia",
 		},
 		{
-			src: "/img/home/venue-2.jpg",
-			alt: "Fogadás terület",
+			src: "/img/venue/welcome.jpg",
+			alt: "Állófogadás",
 			title: "Fogadás",
 		},
 	];
@@ -72,7 +72,7 @@ export default function VenuePage() {
 									fill
 									className="object-cover group-hover:scale-105 transition-transform duration-300"
 								/>
-								<div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-end">
+								<div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-end">
 									<div className="p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 										<p className="font-medium">{image.title}</p>
 									</div>
@@ -180,7 +180,7 @@ export default function VenuePage() {
 									<p>
 										<strong>Távolság:</strong>
 										<br />
-										Budapest központjától: ~45 km
+										Budapest központjától: ~40 km
 										<br />
 										Autóval: ~40 perc
 									</p>
@@ -193,8 +193,8 @@ export default function VenuePage() {
 								</h3>
 								<p className="text-primary-800">
 									A helyszínen ingyenes parkolási lehetőség áll rendelkezésre
-									minden vendég számára. A parkoló közvetlenül a főépület mellett
-									található.
+									minden vendég számára. A parkoló közvetlenül a bálterem és a
+									ceremónia helyszín mellett található.
 								</p>
 							</div>
 							<div>
@@ -203,9 +203,9 @@ export default function VenuePage() {
 									Tömegközlekedés
 								</h3>
 								<p className="text-primary-800">
-									Inárcsa vonattal és busszal is elérhető Budapestről. A
-									pályaudvartól taxi vagy előre egyeztetett transzfer áll
-									rendelkezésre.
+									Inárcs busszal is elérhető Budapestről. A buszmegállótól valaki
+									autóval segít majd az odajutásban, kérjük, jelezd erre az igényt
+									a visszajelzés során!
 								</p>
 							</div>
 						</div>
