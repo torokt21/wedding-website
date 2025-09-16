@@ -19,6 +19,7 @@ export default function RsvpPage() {
 		companions: [],
 		email: "",
 		canAttend: "",
+		transportation: "",
 		allergies: "",
 		songRequests: "",
 	});
@@ -67,6 +68,7 @@ export default function RsvpPage() {
 				companions: [],
 				email: "",
 				canAttend: "",
+				transportation: "",
 				allergies: "",
 				songRequests: "",
 			});
@@ -204,6 +206,31 @@ export default function RsvpPage() {
 								<option value="igen">Igen, ott leszek!</option>
 								<option value="nem">Nem tudok ott lenni</option>
 							</select>
+						</div>
+
+						{/* Transportation Field */}
+						<div>
+							<label
+								htmlFor="transportation"
+								className="block text-sm font-medium text-primary-900 mb-2">
+								Hogyan tervezel eljutni a helyszínre? *
+							</label>
+							<select
+								id="transportation"
+								name="transportation"
+								value={formData.transportation}
+								onChange={handleChange}
+								required
+								className="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white">
+								<option value="">Válassz...</option>
+								<option value="sajat-auto">Autóval/taxival érkezem</option>
+								<option value="tomegkozlekedes">Tömegközlekedéssel érkezem</option>
+							</select>
+							<p className="text-sm text-primary-600 mt-2">
+								💡 <strong>Fontos:</strong> Ha tömegközlekedéssel érkezel, akkor
+								valaki a buszmegállótól autóval elvisz a helyszínre. További
+								információkat majd e-mailben küldünk.
+							</p>
 						</div>
 
 						{/* Allergies Field */}

@@ -15,6 +15,7 @@ interface RSVPEmailProps {
 	companions?: string[];
 	email?: string;
 	canAttend?: string;
+	transportation?: string;
 	allergies?: string;
 	songRequests?: string;
 }
@@ -26,6 +27,7 @@ export const RSVPEmail = ({
 	companions,
 	email,
 	canAttend,
+	transportation,
 	allergies,
 	songRequests,
 }: RSVPEmailProps) => {
@@ -68,6 +70,13 @@ export const RSVPEmail = ({
 								{canAttend === "igen" ? "Igen" : "Nem"}
 							</Text>
 						</Row>
+						{transportation && (
+							<Row>
+								<Text style={paragraph}>
+									<strong>Közlekedés:</strong> {transportation}
+								</Text>
+							</Row>
+						)}
 						{companions && companions.length > 0 && (
 							<Row>
 								<Text style={paragraph}>

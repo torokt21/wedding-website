@@ -9,6 +9,7 @@ export interface RSVPFormData {
 	companions: string[];
 	email: string;
 	canAttend: string;
+	transportation: string;
 	allergies: string;
 	songRequests: string;
 }
@@ -18,17 +19,16 @@ async function SendRSVPEmailAction(formData: RSVPFormData) {
 	// It can be called from the form submission handler
 
 	const emailHtml = await render(
-		<RSVPEmail
+		<RSVPEmail 
 			name={formData.name}
 			companions={formData.companions}
 			email={formData.email}
 			canAttend={formData.canAttend}
+			transportation={formData.transportation}
 			allergies={formData.allergies}
 			songRequests={formData.songRequests}
 		/>
-	);
-
-	await transporter.sendMail({
+	);	await transporter.sendMail({
 		from: process.env.FROM_EMAIL,
 		to: process.env.CONTACT_EMAILS?.split(",") || [],
 		subject: `RSVP - ${formData.name} ${formData.canAttend === "igen" ? "részt vesz" : "nem vesz részt"}`,
