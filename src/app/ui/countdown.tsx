@@ -60,7 +60,7 @@ function DisplayField({ value, label }: { value: number; label: string }) {
 		<div className="bg-primary-500 rounded-3xl py-6 relative">
 			<p className="text-2xl md:text-3xl lg:text-3xl font-serif">{value}</p>
 			<p
-				className={`${parisienne.className} text-2xl md:text-3xl absolute bottom-[-1.2rem] left-1/2 transform -translate-x-1/2`}>
+				className={`${parisienne.className} text-xl md:text-2xl absolute bottom-[-1.2rem] left-1/2 transform -translate-x-1/2`}>
 				{label}
 			</p>
 		</div>
