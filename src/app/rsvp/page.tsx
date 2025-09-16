@@ -156,7 +156,7 @@ export default function RsvpPage() {
 						)}
 
 						{/* Add Companion */}
-						<div className="flex gap-2">
+						<div className="flex gap-2 flex-wrap">
 							<input
 								type="text"
 								value={newCompanion}
@@ -173,7 +173,7 @@ export default function RsvpPage() {
 							<button
 								type="button"
 								onClick={addCompanion}
-								className="px-6 py-3 bg-primary-800 text-white rounded-lg hover:bg-primary-900 transition-colors duration-200 font-medium">
+								className="px-6 py-3 bg-primary-800 text-white rounded-lg hover:bg-primary-900 transition-colors duration-200 font-medium w-100 md:w-auto">
 								Hozzáad
 							</button>
 						</div>
@@ -223,7 +223,7 @@ export default function RsvpPage() {
 								<label
 									htmlFor="transportation"
 									className="block text-sm font-medium text-primary-900 mb-2">
-									Hogyan tervezel eljutni a helyszínre? *
+									Hogyan tervezel eljutni a helyszínre?
 								</label>
 								<select
 									id="transportation"
