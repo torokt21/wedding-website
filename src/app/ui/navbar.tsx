@@ -4,6 +4,7 @@ import Container from "./container";
 import { Cormorant } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { menuItems } from "./menu-items";
 import { useState } from "react";
 
 export const cormorant = Cormorant({
@@ -11,13 +12,6 @@ export const cormorant = Cormorant({
 	style: "normal",
 	weight: "600",
 });
-
-const menuItems = [
-	{ href: "/venue", label: "Helyszín" },
-	{ href: "/gallery", label: "Galéria" },
-	{ href: "/about", label: "Tudnivalók" },
-	{ href: "/contact", label: "Kapcsolat" },
-];
 
 export default function Navbar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

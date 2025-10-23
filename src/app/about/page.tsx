@@ -3,7 +3,7 @@
 import Container from "../ui/container";
 import { Cormorant } from "next/font/google";
 import Image from "next/image";
-import LinkButton from "../ui/linkButton";
+import Link from "next/link";
 
 const cormorant = Cormorant({
 	subsets: ["latin"],
@@ -61,20 +61,8 @@ export default function AboutPage() {
 						Tudnivalók
 					</h1>
 					<p className="text-xl text-primary-700 mb-2">
-						Minden, amit tudnod kell a nagy napról
+						Minden, amit a nagy napról tudnod kell.
 					</p>
-				</div>
-
-				{/* Quick Link to Venue */}
-				<div className="mb-16 p-8 bg-primary-50 rounded-2xl border border-primary-200 text-center">
-					<h2
-						className={`${cormorant.className} text-2xl md:text-3xl text-primary-900 mb-4`}>
-						Hol lesz mindez?
-					</h2>
-					<p className="text-primary-800 mb-6">
-						Ha a helyszínről szeretnél többet megtudni, nézd meg a Helyszín oldalt!
-					</p>
-					<LinkButton href="/venue">Helyszín megtekintése</LinkButton>
 				</div>
 
 				{/* Schedule Section - Timeline */}
@@ -126,97 +114,49 @@ export default function AboutPage() {
 					</div>
 				</div>
 
+				{/* Quick Link to Venue */}
+				<div className="mb-16 p-8 bg-primary-50 rounded-2xl border border-primary-200 text-center">
+					<h2
+						className={`${cormorant.className} text-2xl md:text-3xl text-primary-900 mb-4`}>
+						Hol lesz mindez?
+					</h2>
+					<p className="text-primary-800 mb-1">
+						Ha a helyszínről szeretnél többet megtudni, nézd meg a{" "}
+						<Link className="underline" href="/venue">
+							Helyszín oldalt
+						</Link>
+						!
+					</p>
+				</div>
+
 				{/* Gifts Section - Humorous */}
 				<div className="mb-16">
 					<h2
 						className={`${cormorant.className} text-3xl md:text-4xl text-primary-900 text-center mb-8`}>
 						Ajándék ötletek
 					</h2>
-					<div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 md:p-12 border border-primary-200 shadow-lg">
+					<div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 md:p-12 border border-primary-200">
 						<div className="flex flex-col md:flex-row gap-8 items-center">
-							<div className="flex-shrink-0 text-7xl md:text-8xl">💰</div>
+							<div className="flex-shrink-0 text-7xl md:text-8xl">
+								<Image
+									className="rounded-full"
+									src="/img/about/envelope.svg"
+									alt="Envelope"
+									width={80}
+									height={80}
+								/>
+							</div>
 							<div className="space-y-4 text-primary-800 text-lg">
 								<p>
 									Tudjuk, hogy a hagyományok fontosak, de őszintén szólva: van már
 									otthon kenyérpirítónk, sószórónk és tányérkészletünk is.
 								</p>
-								<p>
-									Ezért, ha úgy érzed, hogy megajándékoznál minket, akkor a
-									legőszintébben mondjuk: egy boríték minket boldogabbá tesz, mint
-									bármi más. Azt meg tudjuk mondani, hogy már régóta álmodunk egy
-									közös utazásról, és minden fillér közelebb visz minket ahhoz,
-									hogy igazi kalandokban legyen részünk.
-								</p>
+
 								<p className="font-medium text-primary-900">
-									Persze, ha mégis valami kreatívra vágynál: a pénz bármilyen
-									formája örömmel fogadott – borítékban, kupában, süteménybe
-									rejtve, vagy origami darvak formájában. 😊
+									Ezért, ha úgy érzed, hogy megajándékoznál minket, akkor a
+									legőszintébben mondjuk: mi nagyon szeretjük a borítékokat.
 								</p>
 							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Dress Code Section */}
-				<div className="mb-16">
-					<h2
-						className={`${cormorant.className} text-3xl md:text-4xl text-primary-900 text-center mb-8`}>
-						Dress Code
-					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-						<div className="text-center p-8 bg-primary-50 rounded-xl border border-primary-200">
-							<div className="w-20 h-20 bg-primary-200 rounded-full flex items-center justify-center mx-auto mb-4">
-								<span className="text-4xl">👔</span>
-							</div>
-							<h3 className={`${cormorant.className} text-2xl text-primary-900 mb-3`}>
-								Úriembereknek
-							</h3>
-							<p className="text-primary-700">
-								Öltöny vagy elegáns nadrág-ing kombináció. Nyári hőség várható,
-								szóval ne aggódj a zakó miatt!
-							</p>
-						</div>
-						<div className="text-center p-8 bg-primary-50 rounded-xl border border-primary-200">
-							<div className="w-20 h-20 bg-primary-200 rounded-full flex items-center justify-center mx-auto mb-4">
-								<span className="text-4xl">👗</span>
-							</div>
-							<h3 className={`${cormorant.className} text-2xl text-primary-900 mb-3`}>
-								Hölgyeknek
-							</h3>
-							<p className="text-primary-700">
-								Koktélruha vagy elegáns ruha. Kérünk benneteket, kerüljétek a fehér
-								színt - az a mi privilégiumunk ezen a napon! 😉
-							</p>
-						</div>
-					</div>
-				</div>
-
-				{/* Important Notes */}
-				<div className="bg-primary-800 text-white rounded-2xl p-8 md:p-12">
-					<h2 className={`${cormorant.className} text-3xl md:text-4xl text-center mb-8`}>
-						Fontos információk
-					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-						<div className="text-center">
-							<div className="text-4xl mb-3">🚗</div>
-							<h3 className={`${cormorant.className} text-xl mb-2`}>Parkolás</h3>
-							<p className="text-primary-100">
-								A helyszínen ingyenes parkolási lehetőség áll rendelkezésre
-							</p>
-						</div>
-						<div className="text-center">
-							<div className="text-4xl mb-3">🌤️</div>
-							<h3 className={`${cormorant.className} text-xl mb-2`}>Időjárás</h3>
-							<p className="text-primary-100">
-								Augusztusi napsütésre számítunk, de fedett terület is van
-							</p>
-						</div>
-						<div className="text-center">
-							<div className="text-4xl mb-3">📞</div>
-							<h3 className={`${cormorant.className} text-xl mb-2`}>Elérhetőség</h3>
-							<p className="text-primary-100">
-								Bármilyen kérdés esetén keressetek minket a Kapcsolat oldalon
-							</p>
 						</div>
 					</div>
 				</div>
