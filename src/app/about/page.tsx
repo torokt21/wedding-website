@@ -2,6 +2,7 @@
 
 import Container from "../ui/container";
 import { Cormorant } from "next/font/google";
+import Image from "next/image";
 import LinkButton from "../ui/linkButton";
 
 const cormorant = Cormorant({
@@ -16,49 +17,37 @@ export default function AboutPage() {
 			time: "16:00",
 			title: "Vendégvárás",
 			description: "Gyülekezzünk, ismerkedjünk, készüljünk a nagy eseményre",
-			icon: "👋",
-		},
-		{
-			time: "15:30",
-			title: "Szertartás",
-			description: "A ceremónia, ahol hivatalossá válik a szerelmünk",
-			icon: "💍",
-		},
-		{
-			time: "16:30",
-			title: "Gratulációk & Fotózás",
-			description: "Közös fotók és boldog pillanatok megörökítése",
-			icon: "📸",
+			icon: "/img/about/1.svg",
 		},
 		{
 			time: "17:00",
-			title: "Vacsora",
-			description: "Finom falatok és italok, hogy erőt gyűjtsünk",
-			icon: "🍽️",
+			title: "Szertartás",
+			description: "A ceremónia, ahol hivatalossá válik a szerelmünk",
+			icon: "/img/about/2.svg",
 		},
 		{
-			time: "19:00",
-			title: "Nyitótánc",
-			description: "Az ifjú pár első tánca mint házasok",
-			icon: "💃",
+			time: "17:30",
+			title: "Fotózás & Gratulációk",
+			description: "A boldog pillanat közös megörökítése",
+			icon: "/img/about/3.svg",
 		},
 		{
 			time: "19:30",
+			title: "Vacsora",
+			description: "Finom falatok és italok, hogy erőt gyűjtsünk a tánci táncihoz",
+			icon: "/img/about/4.svg",
+		},
+		{
+			time: "21:00",
+			title: "Nyitótánc",
+			description: "Az első táncunk friss házasként",
+			icon: "/img/about/5.svg",
+		},
+		{
+			time: "21:30",
 			title: "Buli",
-			description: "Hajnalig tartó mulatozás, tánc és vidámság",
-			icon: "🎉",
-		},
-		{
-			time: "24:00",
-			title: "Menyasszonytánc",
-			description: "Egy különleges pillanat",
-			icon: "👰",
-		},
-		{
-			time: "???",
-			title: "Hazafelé",
-			description: "Amikor már mindenki fáradt, de boldogan",
-			icon: "🌙",
+			description: "Hajnalig tartó mulatozás, menyasszonytánccal és tortázással",
+			icon: "/img/about/6.svg",
 		},
 	];
 
@@ -105,8 +94,14 @@ export default function AboutPage() {
 									className="relative flex gap-6 md:gap-8 mb-8 last:mb-0">
 									{/* Timeline dot and icon */}
 									<div className="flex-shrink-0 relative z-10">
-										<div className="w-16 h-16 md:w-20 md:h-20 bg-primary-500 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-lg">
-											{item.icon}
+										<div className="w-16 h-16 md:w-20 md:h-20 bg-primary-500 rounded-full flex items-center justify-center shadow-lg">
+											<Image
+												src={item.icon}
+												alt={item.title}
+												width={80}
+												height={80}
+												className="w-full h-full object-contain rounded-full"
+											/>
 										</div>
 									</div>
 
