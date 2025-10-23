@@ -17,37 +17,37 @@ export default function AboutPage() {
 			time: "16:00",
 			title: "Vendégvárás",
 			description: "Gyülekezzünk, ismerkedjünk, készüljünk a nagy eseményre",
-			icon: "/img/about/1.svg",
+			icon: "/img/about/welcome.svg",
 		},
 		{
 			time: "17:00",
 			title: "Szertartás",
 			description: "A boldogító igen kimondása előttetek",
-			icon: "/img/about/2.svg",
+			icon: "/img/about/ceremony.svg",
 		},
 		{
 			time: "17:30",
 			title: "Fotózás & Gratulációk",
 			description: "A boldog pillanat közös megörökítése",
-			icon: "/img/about/3.svg",
+			icon: "/img/about/photo.svg",
 		},
 		{
 			time: "19:30",
 			title: "Vacsora",
 			description: "Finom falatok és italok, hogy erőt gyűjtsünk a tánci táncihoz",
-			icon: "/img/about/4.svg",
+			icon: "/img/about/dinner.svg",
 		},
 		{
 			time: "21:00",
 			title: "Nyitótánc",
 			description: "Az első táncunk friss házasként",
-			icon: "/img/about/5.svg",
+			icon: "/img/about/dance.svg",
 		},
 		{
 			time: "21:30",
 			title: "Buli",
 			description: "Hajnalig (04:00) tartó mulatozás, menyasszonytánccal és tortázással",
-			icon: "/img/about/6.svg",
+			icon: "/img/about/party.svg",
 		},
 	];
 
@@ -139,7 +139,7 @@ export default function AboutPage() {
 						<div className="flex flex-col md:flex-row gap-8 items-center">
 							<div className="flex-shrink-0 text-7xl md:text-8xl">
 								<Image
-									className="rounded-full"
+									className="rounded-full bg-primary-600"
 									src="/img/about/envelope.svg"
 									alt="Envelope"
 									width={80}
