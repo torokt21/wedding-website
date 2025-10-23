@@ -184,6 +184,10 @@ export default function VenuePage() {
 										Budapest központjától: ~40 km
 										<br />
 										Autóval: ~40 perc
+										<br />
+										<strong>⚠️ Figyelem:</strong> Az M5-ös autópályáról
+										lekanyarodva ne a fordulj le a földesútra mint a Google Maps
+										ajánlja, hanem balra a Bagolyvár irányába!
 									</p>
 									<div className="text-primary-600">
 										Kanadából: ~7918 km
