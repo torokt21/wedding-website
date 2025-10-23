@@ -183,6 +183,11 @@ export default function VenuePage() {
 										Budapest központjától: ~40 km
 										<br />
 										Autóval: ~40 perc
+										<div className="text-primary-600">
+											Kanadából: ~7918 km
+											<br />
+											Ausztáliából: ~14875 km
+										</div>
 									</p>
 								</div>
 							</div>

@@ -1,4 +1,5 @@
 export default [
+	{ src: "/img/gallery/00.jpg", description: "Gallery Image 1", showOnHomepage: false },
 	{ src: "/img/gallery/01.jpg", description: "Gallery Image 1", showOnHomepage: false },
 	{ src: "/img/gallery/02.jpg", description: "Gallery Image 2", showOnHomepage: false },
 	{ src: "/img/gallery/04.jpg", description: "Gallery Image 4", showOnHomepage: false },

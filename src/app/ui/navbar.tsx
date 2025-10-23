@@ -15,7 +15,7 @@ export const cormorant = Cormorant({
 const menuItems = [
 	{ href: "/venue", label: "Helyszín" },
 	{ href: "/gallery", label: "Galéria" },
-	{ href: "/contact", label: "Elérhetőség" },
+	{ href: "/contact", label: "Kapcsolat" },
 ];
 
 export default function Navbar() {
