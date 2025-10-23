@@ -281,7 +281,7 @@ export default function RsvpPage() {
 									onChange={handleChange}
 									rows={4}
 									className="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition-all duration-200 bg-primary-50 hover:bg-white focus:bg-white resize-vertical"
-									placeholder="Van olyan zene, amit szívesen hallgatnál az esküvőn? Írd ide a kedvenc számaídat vagy előadóidat!"
+									placeholder="Van olyan zene, amit szívesen hallgatnál az esküvőn? Írd ide a kedvenc számaidat vagy előadóidat!"
 								/>
 							</div>
 						)}
@@ -327,7 +327,10 @@ export default function RsvpPage() {
 						</p>
 						<p className="text-primary-800">
 							Ha bármilyen kérdésed van, ne habozz kapcsolatba lépni velünk a{" "}
-							<Link href="/kapcsolat">kapcsolat oldalon</Link> keresztül!
+							<Link className="underline" href="/contact">
+								kapcsolat oldalon
+							</Link>{" "}
+							keresztül!
 						</p>
 					</div>
 				</div>
