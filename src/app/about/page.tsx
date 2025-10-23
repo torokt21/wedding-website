@@ -22,7 +22,7 @@ export default function AboutPage() {
 		{
 			time: "17:00",
 			title: "Szertartás",
-			description: "A ceremónia, ahol hivatalossá válik a szerelmünk",
+			description: "A boldogító igen kimondása előttetek",
 			icon: "/img/about/2.svg",
 		},
 		{
@@ -46,7 +46,7 @@ export default function AboutPage() {
 		{
 			time: "21:30",
 			title: "Buli",
-			description: "Hajnalig tartó mulatozás, menyasszonytánccal és tortázással",
+			description: "Hajnalig (04:00) tartó mulatozás, menyasszonytánccal és tortázással",
 			icon: "/img/about/6.svg",
 		},
 	];
@@ -138,9 +138,7 @@ export default function AboutPage() {
 							<div className="space-y-4 text-primary-800 text-lg">
 								<p>
 									Tudjuk, hogy a hagyományok fontosak, de őszintén szólva: van már
-									otthon egy kenyérpirítónk, három robotgépünk (amiket sosem
-									használunk), és annyi törülköző, hogy ki tudnánk nyitni egy kis
-									wellness központot.
+									otthon kenyérpirítónk, sószórónk és tányérkészletünk is.
 								</p>
 								<p>
 									Ezért, ha úgy érzed, hogy megajándékoznál minket, akkor a
