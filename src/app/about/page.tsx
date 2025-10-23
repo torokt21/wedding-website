@@ -146,7 +146,7 @@ export default function AboutPage() {
 									height={80}
 								/>
 							</div>
-							<div className="space-y-4 text-primary-800 text-lg">
+							<div className="space-y-4 text-primary-800 text-lg text-center md:text-left">
 								<p>
 									Tudjuk, hogy a hagyományok fontosak, de őszintén szólva: van már
 									otthon kenyérpirítónk, sószórónk és tányérkészletünk is.
