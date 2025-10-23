@@ -3,6 +3,7 @@
 import Container from "../ui/container";
 import { Cormorant } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const cormorant = Cormorant({
@@ -229,16 +230,19 @@ export default function VenuePage() {
 				</div>
 
 				{/* Contact Info */}
-				<div className="text-center bg-primary-100 rounded-2xl p-8 border border-primary-200">
+				<div className="text-center bg-primary-100 rounded-2xl p-8 border border-primary-200 text-primary-800 ">
 					<h3 className={`${cormorant.className} text-2xl text-primary-900 mb-4`}>
 						További információk
 					</h3>
-					<p className="text-primary-800 mb-4">
+					<p className="mb-4">
 						Ha kérdésed van a helyszínnel kapcsolatban, vagy segítségre van szükséged az
 						odajutásban, ne habozz kapcsolatba lépni velünk!
 					</p>
-					<p className="text-primary-700">
-						Minden részletet szívesen megbeszélünk a <strong>Kapcsolat</strong> oldalon
+					<p>
+						Minden részletet szívesen megbeszélünk a{" "}
+						<Link className="underline" href="/contact">
+							Kapcsolat oldalon
+						</Link>{" "}
 						keresztül.
 					</p>
 				</div>
