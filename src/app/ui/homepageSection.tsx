@@ -71,9 +71,9 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 				alt="Motive"
 				width={284}
 				height={268}
-				className={clsx("absolute -top-14 origin-[60px_55px] ", {
-					"-left-15 scale-50 lg:scale-100": imageSide === "left",
-					"-right-55 -scale-x-50 scale-y-50 lg:scale-y-100 lg:-scale-x-100":
+				className={clsx("absolute -top-13 origin-[70px_51px]", {
+					"-left-17 scale-50 lg:scale-100": imageSide === "left",
+					"-right-53 -scale-x-50 scale-y-50 lg:scale-y-100 lg:-scale-x-100":
 						imageSide === "right",
 				})}
 			/>
