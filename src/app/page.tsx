@@ -38,7 +38,7 @@ export default function Home() {
 						tudd, hogy minek kellett volna történnie.
 					</p>
 
-					<LinkButton href="/venue">Tudj meg többet!</LinkButton>
+					<LinkButton href="/about">Tudj meg többet!</LinkButton>
 				</HomepageSection>
 
 				<HomepageSection
