@@ -19,10 +19,12 @@ export default function Navbar() {
 	return (
 		<div className="bg-primary-400 text-xl font-medium sticky top-0 right-0 left-0 z-100">
 			<Container>
-				<nav className="flex items-center justify-between">
-					<Logo />
+				<nav className="grid grid-cols-[auto_1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center">
+					<div className="justify-self-start">
+						<Logo />
+					</div>
 					<ul
-						className={`${cormorant.className} space-x-4 uppercase hidden md:flex py-5`}>
+						className={`${cormorant.className} space-x-4 uppercase hidden md:flex py-5 md:justify-self-center`}>
 						{menuItems.map((item) => (
 							<li key={item.href}>
 								<Link href={item.href} className="hover:text-gray-400">
@@ -31,34 +33,39 @@ export default function Navbar() {
 							</li>
 						))}
 					</ul>
-					{/* Desktop RSVP button */}
-					<Link
-						href="/rsvp"
-						className={`${cormorant.className} antialiased rounded-full my-2 border border-primary-800 font-bold text-primary-800 border-solid transition-colors duration-300 items-center bg-primary-500 hover:bg-primary-800 hover:text-white text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto uppercase animate-jump animate-duration-1000 animate-delay-[5000ms] animate-thrice hidden md:flex`}>
-						Visszajelzek
-					</Link>
-					{/* Mobile hamburger menu */}
-					<button
-						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-						className="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5"
-						aria-label="Toggle menu">
-						<span
-							className={`block w-6 h-0.5 bg-primary-800 transition-all duration-300 ${
-								mobileMenuOpen ? "rotate-45 translate-y-2" : ""
-							}`}></span>
-						<span
-							className={`block w-6 h-0.5 bg-primary-800 transition-all duration-300 ${
-								mobileMenuOpen ? "opacity-0" : ""
-							}`}></span>
-						<span
-							className={`block w-6 h-0.5 bg-primary-800 transition-all duration-300 ${
-								mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-							}`}></span>
-					</button>
+					<div className="justify-self-end flex items-center">
+						{/* Desktop RSVP button */}
+						<Link
+							href="/rsvp"
+							className={`${cormorant.className} antialiased rounded-full my-2 border border-primary-800 font-bold text-primary-800 border-solid transition-colors duration-300 items-center bg-primary-500 hover:bg-primary-800 hover:text-white text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto uppercase animate-jump animate-duration-1000 animate-delay-[5000ms] animate-thrice hidden md:flex`}>
+							Visszajelzek
+						</Link>
+						{/* Mobile hamburger menu */}
+						<button
+							onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+							className="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5"
+							aria-label="Toggle menu">
+							<span
+								className={`block w-6 h-0.5 bg-primary-800 transition-all duration-300 ${
+									mobileMenuOpen ? "rotate-45 translate-y-2" : ""
+								}`}></span>
+							<span
+								className={`block w-6 h-0.5 bg-primary-800 transition-all duration-300 ${
+									mobileMenuOpen ? "opacity-0" : ""
+								}`}></span>
+							<span
+								className={`block w-6 h-0.5 bg-primary-800 transition-all duration-300 ${
+									mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+								}`}></span>
+						</button>
+					</div>
 				</nav>
 				{/* Mobile menu dropdown */}
-				{mobileMenuOpen && (
-					<div className="md:hidden pb-4 text-center">
+				<div
+					className={`md:hidden overflow-hidden transition-all duration-800 ease-in-out ${
+						mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+					}`}>
+					<div className="pb-4 text-center">
 						<ul className={`${cormorant.className} space-y-3 uppercase mt-5`}>
 							{menuItems.map((item) => (
 								<li key={item.href}>
@@ -81,7 +88,7 @@ export default function Navbar() {
 							</li>
 						</ul>
 					</div>
-				)}
+				</div>
 			</Container>
 		</div>
 	);
