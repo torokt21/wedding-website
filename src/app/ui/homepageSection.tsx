@@ -38,8 +38,9 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 	return (
 		<div className="relative xl:mb-20 ">
 			<Image
-				width={6000}
-				height={6000}
+				width={800}
+				height={500}
+				loading="eager"
 				src={mainImageSrc}
 				alt="Rendezvényterem"
 				className={clsx(`z-[-1]`, {
@@ -53,6 +54,7 @@ function ImageColumn({ mainImageSrc, secondaryImageSrc, imageSide }: HomepageSec
 				<Image
 					width={200}
 					height={300}
+					loading="eager"
 					style={{ width: 200, height: 300 }}
 					src={secondaryImageSrc}
 					alt=""
