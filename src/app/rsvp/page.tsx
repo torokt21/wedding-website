@@ -65,6 +65,8 @@ export default function RsvpPage() {
 		}));
 	};
 
+	const [lastSubmittedAttendance, setLastSubmittedAttendance] = useState<string>("");
+
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		setIsSubmitting(true);
@@ -73,6 +75,7 @@ export default function RsvpPage() {
 		try {
 			await SendRSVPEmailAction(formData);
 
+			setLastSubmittedAttendance(formData.canAttend);
 			setSubmitStatus("success");
 			setFormData({
 				name: "",
@@ -300,7 +303,7 @@ export default function RsvpPage() {
 						{submitStatus === "success" && (
 							<div className="mt-4 p-4 bg-green-100 border border-green-300 rounded-lg text-green-800">
 								Köszönjük a válaszodat!{" "}
-								{formData.canAttend === "igen"
+								{lastSubmittedAttendance === "igen"
 									? "Alig várjuk, hogy találkozzunk veled az esküvőn!"
 									: "Sajnáljuk, hogy nem tudsz eljönni, de megértjük."}
 							</div>
