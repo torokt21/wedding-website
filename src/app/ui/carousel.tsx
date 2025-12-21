@@ -71,10 +71,8 @@ const Carousel: React.FC = () => {
 						alt={images[left].description || ""}
 						width={420}
 						height={300}
-						unoptimized
 						priority
-					/>
-
+					/>{" "}
 					<div className="relative">
 						{/* Left Decorative Motive Image */}
 						<Image
@@ -86,20 +84,17 @@ const Carousel: React.FC = () => {
 						/>
 					</div>
 				</div>
-
 				{/* Center Image */}
 				<div className={`${animationClasses} py-30`}>
 					<Image
 						src={images[center].src}
 						alt={images[center].description || ""}
-						width={500}
+						width={800}
 						height={500}
 						className={`object-cover h-auto w-[800px] max-h-[500px] rounded-2xl z-3 shadow-2xl aspect-[14/10]`}
 						priority
-						unoptimized
 					/>
-				</div>
-
+				</div>{" "}
 				{/* Right Image */}
 				<div>
 					<Image
@@ -108,10 +103,8 @@ const Carousel: React.FC = () => {
 						width={420}
 						height={300}
 						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px] hidden md:block"
-						unoptimized
 						priority
-					/>
-
+					/>{" "}
 					<div className="relative">
 						{/* Right Decorative Motive Image */}
 						<Image
