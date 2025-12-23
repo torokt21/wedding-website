@@ -72,9 +72,6 @@ export default function ContactPage() {
 								Köszönjük az üzeneted!
 							</h2>
 							<p className="text-lg text-primary-800 mb-6">Hamarosan válaszolunk.</p>
-							<p className="text-primary-700">
-								Megerősítő e-mailt fogsz kapni a megadott címre.
-							</p>
 						</div>
 					</div>
 				)}
