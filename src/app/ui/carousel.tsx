@@ -46,11 +46,12 @@ const Carousel: React.FC = () => {
 			<div className="flex items-center gap-0 md:gap-10 z-2">
 				{/* Left Image */}
 				<div className="hidden md:block relative">
-					<img
+					<Image
 						src={images[leftIndex].src}
 						alt={images[leftIndex].description || ""}
+						width={420}
+						height={300}
 						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px]"
-						loading="lazy"
 					/>
 					<div className="relative">
 						<Image
@@ -65,21 +66,25 @@ const Carousel: React.FC = () => {
 
 				{/* Center Image with fade transition */}
 				<div className="py-30 relative">
-					<img
+					<Image
 						key={centerIndex}
 						src={images[centerIndex].src}
 						alt={images[centerIndex].description || ""}
+						width={800}
+						height={500}
 						className="object-cover h-auto w-[90vw] sm:w-[500px] md:w-[600px] lg:w-[800px] max-h-[500px] rounded-2xl shadow-2xl aspect-[14/10]"
+						priority
 					/>
 				</div>
 
 				{/* Right Image */}
 				<div className="hidden md:block relative">
-					<img
+					<Image
 						src={images[rightIndex].src}
 						alt={images[rightIndex].description || ""}
+						width={420}
+						height={300}
 						className="object-cover shadow-lg rounded-lg aspect-[14/10] h-auto w-[420px]"
-						loading="lazy"
 					/>
 					<div className="relative">
 						<Image
