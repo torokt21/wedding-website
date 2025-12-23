@@ -72,8 +72,19 @@ export default function RsvpPage() {
 		setIsSubmitting(true);
 		setSubmitStatus(null);
 
+		// Include any unsaved companion in the input field
+		const finalCompanions = [...formData.companions];
+		if (newCompanion.trim() !== "") {
+			finalCompanions.push(newCompanion.trim());
+		}
+
+		const dataToSubmit = {
+			...formData,
+			companions: finalCompanions,
+		};
+
 		try {
-			await SendRSVPEmailAction(formData);
+			await SendRSVPEmailAction(dataToSubmit);
 
 			setLastSubmittedAttendance(formData.canAttend);
 			setSubmitStatus("success");
@@ -86,6 +97,7 @@ export default function RsvpPage() {
 				allergies: "",
 				songRequests: "",
 			});
+			setNewCompanion("");
 		} catch (error) {
 			console.error("Form submission error:", error);
 			setSubmitStatus("error");
