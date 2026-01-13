@@ -186,7 +186,7 @@ export default function VenuePage() {
 										Autóval: ~40 perc
 										<br />
 										<strong>⚠️ Figyelem:</strong> Az M5-ös autópályáról
-										lekanyarodva ne a fordulj le a földesútra mint a Google Maps
+										lekanyarodva ne fordulj le a földesútra mint a Google Maps
 										ajánlja, hanem balra a Bagolyvár irányába!
 									</p>
 									<div className="text-primary-600">
